@@ -1,0 +1,193 @@
+
+/* =========================================
+   CONTACT HERO
+   ========================================= */
+
+   .hero {
+    position: relative;
+    width: 100%;
+    min-height: 90svh;
+    overflow: hidden;
+  
+    background-color: var(--palette-cream);
+    background-image: url("/images/illustrations/contact-hero.webp");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+  
+    display: flex;
+    align-items: center;
+  
+    width: min(100% - 3rem, 1280px);
+    min-height: 90svh;
+    margin: 0 auto;
+    padding: 5rem 0;
+  }
+  
+  /* =========================================
+     CONTENT
+     ========================================= */
+  
+  .content {
+    position: relative;
+    z-index: 2;
+  
+    width: 48%;
+    min-width: 0;
+  }
+  
+  .eyebrow {
+    display: block;
+    margin-bottom: 0.85rem;
+  
+    color: var(--palette-forest);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  .content h1 {
+    margin: 0 0 1.25rem;
+  
+    color: var(--palette-forest);
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.055em;
+    line-height: 1.05;
+  }
+  
+  .content p {
+    max-width: 520px;
+    margin: 0;
+  
+    color: var(--palette-forest);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  /* =========================================
+     IPAD PRO / SMALL DESKTOP
+     ========================================= */
+  
+  @media (min-width: 901px) and (max-width: 1200px) {
+    .hero {
+      min-height: 600px;
+      background-position: right bottom;
+      background-size: auto 85%;
+    }
+  
+    .container {
+      min-height: 600px;
+      padding: 4rem 0;
+    }
+  
+    .content {
+      width: 46%;
+    }
+  
+    .content h1 {
+      font-size: clamp(2.6rem, 4.5vw, 3.75rem);
+    }
+  
+    .content p {
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+  }
+  
+  /* =========================================
+     IPAD MINI / TABLET
+     ========================================= */
+  
+  @media (min-width: 601px) and (max-width: 900px) {
+    .hero {
+      min-height: 0;
+      background-position: right bottom;
+      background-size: auto 390px;
+    }
+  
+    .container {
+      display: block;
+      min-height: 0;
+      padding: 4rem 0 410px;
+    }
+  
+    .content {
+      width: 100%;
+      max-width: 620px;
+    }
+  
+    .content h1 {
+      font-size: clamp(2.75rem, 5.5vw, 3.75rem);
+    }
+  
+    .content p {
+      max-width: 550px;
+      font-size: 0.925rem;
+      line-height: 1.65;
+    }
+  }
+  
+  /* =========================================
+     MOBILE
+     ========================================= */
+  
+  @media (max-width: 600px) {
+    .hero {
+      min-height: 0;
+      background-position: 98% bottom;
+      background-size: auto 55%;
+    }
+  
+    .container {
+      display: block;
+  
+      width: min(100% - 2rem, 1280px);
+      min-height: 680px;
+      padding: 2.5rem 0 350px;
+    }
+  
+    .content {
+      width: 100%;
+    }
+  
+    .eyebrow {
+      margin-bottom: 0.65rem;
+      font-size: 0.65rem;
+    }
+  
+    .content h1 {
+      margin-bottom: 1rem;
+      font-size: clamp(2.35rem, 9vw, 3rem);
+      letter-spacing: -0.045em;
+    }
+  
+    .content p {
+      max-width: 420px;
+      font-size: 0.825rem;
+      line-height: 1.65;
+    }
+  }
+  
+  /* =========================================
+     SMALL MOBILE
+     ========================================= */
+  
+  @media (max-width: 375px) {
+    .hero {
+      background-size: auto 48%;
+    }
+  
+    .container {
+      min-height: 650px;
+      padding-bottom: 300px;
+    }
+  }
+  

@@ -1,0 +1,459 @@
+
+.section {
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+
+  --project-accent: #b7c3a8;
+  --project-accent-secondary: #91a181;
+}
+
+.container {
+  position: relative;
+  width: min(100% - 3rem, 1320px);
+  margin: 0 auto;
+  padding: 4.5rem 4rem;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: 4rem;
+}
+
+.visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1.55;
+  isolation: isolate;
+}
+
+// Main organic shape
+.accentShape {
+  position: absolute;
+  z-index: 0;
+
+  top: 0%;
+  left: 29%;
+  width: 72%;
+  height: 88%;
+
+  background: var(--project-accent);
+  opacity: 0.76;
+
+  border-radius:
+    54% 46% 58% 42% /
+    48% 55% 45% 52%;
+
+  transform: rotate(-12deg);
+
+  pointer-events: none;
+  transition: background-color 350ms ease;
+}
+
+// Smaller organic shape peeking out on the left
+.accentShapeLeft {
+  position: absolute;
+  z-index: 0;
+
+  left: -4%;
+  bottom: 10%;
+  width: 34%;
+  height: 29%;
+
+  background: var(--project-accent-secondary);
+  opacity: 0.62;
+
+  border-radius:
+    65% 35% 58% 42% /
+    55% 45% 60% 40%;
+
+  transform: rotate(-25deg);
+
+  pointer-events: none;
+  transition: background-color 350ms ease;
+}
+
+.deviceImage {
+  position: relative;
+  z-index: 2;
+  width: 108%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.projectImage {
+  object-fit: contain;
+  object-position: center;
+}
+
+.imagePlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #dedede, #c8c8c8);
+
+  svg {
+    width: 35%;
+    max-width: 170px;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.content h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.description {
+  max-width: 430px;
+  margin: 1.25rem 0 1.5rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.caseStudyButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.75rem 1.4rem;
+  background: var(--color-button-primary);
+  color: var(--color-button-primary-text);
+  border-radius: 5px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 200ms ease, opacity 200ms ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 4px;
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 1.75rem;
+}
+
+.paginationItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: width 250ms ease;
+
+  &:hover .paginationLine {
+    background: var(--color-text);
+    opacity: 0.75;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 2px;
+  }
+}
+
+.paginationLine {
+  display: block;
+  width: 18px;
+  height: 4px;
+  border-radius: 10px;
+  background: var(--color-text-muted);
+  opacity: 0.35;
+
+  transition:
+    width 250ms ease,
+    background-color 250ms ease,
+    opacity 250ms ease;
+}
+
+.activePaginationItem {
+  width: 44px;
+
+  .paginationLine {
+    width: 34px;
+    background: var(--color-text);
+    opacity: 1;
+  }
+}
+
+.arrow {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 52px;
+  padding: 0;
+
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+
+  transform: translateY(-50%);
+  transition: color 200ms ease;
+
+  svg {
+    width: 32px;
+    height: 32px;
+    stroke-width: 2.2;
+    transition: transform 200ms ease;
+  }
+
+  &:hover {
+    color: var(--color-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+.previous {
+  left: 0;
+
+  &:hover svg {
+    transform: translateX(-5px);
+  }
+}
+
+.next {
+  right: 0;
+
+  &:hover svg {
+    transform: translateX(5px);
+  }
+}
+
+// Tablet / iPad Pro
+@media (max-width: 1024px) {
+  .container {
+    width: min(100% - 2rem, 900px);
+    padding: 3rem 3.5rem;
+  }
+
+  .project {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .visual {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    aspect-ratio: 1.65;
+  }
+
+  .deviceImage {
+    width: 105%;
+  }
+
+  .accentShape {
+    top: 9%;
+    left: 34%;
+    width: 59%;
+    height: 73%;
+  }
+
+  .accentShapeLeft {
+    left: 4%;
+    bottom: 14%;
+    width: 27%;
+    height: 22%;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .content h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .pagination {
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .arrow {
+    top: 31%;
+  }
+}
+
+// Smaller tablets
+@media (max-width: 768px) {
+  .container {
+    padding: 2.75rem 2.5rem;
+  }
+
+  .visual {
+    aspect-ratio: 1.55;
+  }
+
+  .deviceImage {
+    width: 105%;
+  }
+
+  .accentShape {
+    top: 9%;
+    left: 34%;
+    width: 59%;
+    height: 73%;
+  }
+
+  .accentShapeLeft {
+    left: 4%;
+    bottom: 14%;
+    width: 27%;
+    height: 22%;
+  }
+
+  .arrow {
+    width: 38px;
+    height: 44px;
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .previous {
+    left: -0.5rem;
+  }
+
+  .next {
+    right: -0.5rem;
+  }
+}
+
+// Mobile
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 1.5rem, 500px);
+    padding: 2.5rem 1.5rem;
+  }
+
+  .project {
+    gap: 1.5rem;
+  }
+
+  .visual {
+    width: 100%;
+    aspect-ratio: 1.4;
+  }
+
+  .deviceImage {
+    width: 112%;
+  }
+
+  .accentShape {
+    top: 12%;
+    left: 35%;
+    width: 57%;
+    height: 68%;
+  }
+
+  .accentShapeLeft {
+    left: 3%;
+    bottom: 17%;
+    width: 27%;
+    height: 21%;
+  }
+
+  .content h2 {
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+  }
+
+  .description {
+    margin: 1rem 0 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .arrow {
+    top: 27%;
+    width: 34px;
+    height: 40px;
+
+    svg {
+      width: 27px;
+      height: 27px;
+    }
+  }
+
+  .previous {
+    left: -0.75rem;
+  }
+
+  .next {
+    right: -0.75rem;
+  }
+
+  .pagination {
+    margin-top: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accentShape,
+  .accentShapeLeft,
+  .caseStudyButton,
+  .paginationItem,
+  .paginationLine,
+  .arrow,
+  .arrow svg {
+    transition: none;
+  }
+}

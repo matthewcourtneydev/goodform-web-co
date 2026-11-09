@@ -1,0 +1,262 @@
+
+.section {
+  width: 100%;
+  background: var(--palette-cream);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.container {
+  width: min(100% - 3rem, 1280px);
+  margin: 0 auto;
+  padding: 6rem 0;
+}
+
+// ========================================
+// INTRODUCTION
+// ========================================
+
+.intro {
+  margin-bottom: 4rem;
+
+  h2 {
+    margin: 0 0 1.25rem;
+    color: var(--color-text);
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 3.5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 52px;
+      height: 3px;
+      margin-top: 1.25rem;
+      border-radius: 3px;
+      background: #c96f45;
+    }
+  }
+}
+
+.eyebrow {
+  margin: 0 0 0.85rem;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.description {
+  max-width: 650px;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+// ========================================
+// TIMELINE
+// ========================================
+
+.timeline {
+  --marker-size: 52px;
+  --timeline-gap: 1.5rem;
+
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--timeline-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+  min-width: 0;
+
+  // Connect each marker to the next marker.
+  // No trailing line after step 05.
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: calc(var(--marker-size) / 2);
+    left: calc(var(--marker-size) / 2);
+    width: calc(
+      100% + var(--timeline-gap)
+    );
+    height: 2px;
+    background: var(--color-primary);
+    transform: translateY(-50%);
+    opacity: 0.65;
+  }
+}
+
+// ========================================
+// NUMBERED MARKERS
+// ========================================
+
+.marker {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: var(--marker-size);
+  height: var(--marker-size);
+
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+
+  background: var(--color-primary);
+  color: var(--palette-cream);
+
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+// ========================================
+// STEP CONTENT
+// ========================================
+
+.stepContent {
+  padding-top: 1.65rem;
+
+  h3 {
+    margin: 0 0 0.75rem;
+    color: var(--color-text);
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 1.45vw, 1.4rem);
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  p {
+    max-width: 220px;
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+}
+
+// ========================================
+// TABLET
+// ========================================
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 5rem 0;
+  }
+
+  .intro {
+    margin-bottom: 3.25rem;
+
+    h2 {
+      font-size: clamp(2.5rem, 4vw, 3rem);
+    }
+  }
+
+  .timeline {
+    --marker-size: 46px;
+    --timeline-gap: 0.85rem;
+  }
+
+  .stepContent {
+    padding-top: 1.4rem;
+
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      font-size: 0.825rem;
+      line-height: 1.65;
+    }
+  }
+}
+
+// ========================================
+// MOBILE
+// ========================================
+
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 2rem, 1280px);
+    padding: 4rem 0;
+  }
+
+  .intro {
+    margin-bottom: 3rem;
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1.25rem;
+
+      &::after {
+        width: 44px;
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .description {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .timeline {
+    --marker-size: 48px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: var(--marker-size) minmax(0, 1fr);
+    gap: 1.25rem;
+    padding-bottom: 2.25rem;
+
+    // Replace the horizontal connection with
+    // a vertical line on mobile.
+    &:not(:last-child)::after {
+      top: calc(var(--marker-size) / 2);
+      left: calc(var(--marker-size) / 2);
+      width: 2px;
+      height: calc(100% - var(--marker-size) / 2);
+      transform: none;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  .marker {
+    font-size: 0.875rem;
+  }
+
+  .stepContent {
+    padding-top: 0.15rem;
+
+    h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    p {
+      max-width: 100%;
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+  }
+}

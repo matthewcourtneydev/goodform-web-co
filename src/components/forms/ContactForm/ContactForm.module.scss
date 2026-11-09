@@ -1,0 +1,103 @@
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    width: 100%;
+  }
+  
+  .row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  
+  .field {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 0.45rem;
+  
+    label {
+      color: var(--color-text);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+  
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-width: 0;
+      padding: 0.75rem 0.85rem;
+      border: 1px solid var(--color-border);
+      border-radius: 5px;
+      background: var(--color-background);
+      color: var(--color-text);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      outline-offset: 3px;
+    }
+  
+    input,
+    select {
+      min-height: 44px;
+    }
+  
+    textarea {
+      min-height: 115px;
+      resize: vertical;
+    }
+  
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--color-text-muted);
+      opacity: 0.8;
+    }
+  
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--color-primary);
+    }
+  }
+  
+  .submit {
+    align-self: flex-start;
+    min-height: 44px;
+    padding: 0.75rem 1.75rem;
+    border: 0;
+    border-radius: 5px;
+    background: var(--color-button-primary);
+    color: var(--color-button-primary-text);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+  
+    &:hover {
+      opacity: 0.85;
+    }
+  
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+  }
+  
+  .note {
+    margin: -0.3rem 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 600px) {
+    .row {
+      grid-template-columns: 1fr;
+    }
+  
+    .submit {
+      width: 100%;
+    }
+  }
+  

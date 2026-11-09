@@ -1,0 +1,135 @@
+import {
+    Gem,
+    MessagesSquare,
+    ShieldCheck,
+    TrendingUp,
+    Plus,
+    Minus,
+  } from "lucide-react";
+  
+  import styles from "./AboutValues.module.scss";
+  
+  const values = [
+    {
+      id: "quality",
+      number: "01",
+      title: "Quality",
+      tagline: "The details matter.",
+      description:
+        "From the first layout to the finishing touches, we take pride in creating work that's thoughtful, polished, and built with care. We wouldn't put our name on something we're not proud of.",
+      icon: Gem,
+    },
+    {
+      id: "communication",
+      number: "02",
+      title: "Communication",
+      tagline: "No unnecessary middlemen.",
+      description:
+        "Clear conversations, honest feedback, and direct collaboration throughout the process. You'll know what we're building, why we're building it, and where things stand.",
+      icon: MessagesSquare,
+    },
+    {
+      id: "reliability",
+      number: "03",
+      title: "Reliability",
+      tagline: "Built to last. Here to help.",
+      description:
+        "A website should be something you can depend on. We focus on dependable solutions, thoughtful development, and support that extends beyond launch.",
+      icon: ShieldCheck,
+    },
+    {
+      id: "growth",
+      number: "04",
+      title: "Growth",
+      tagline: "Built for where you're going.",
+      description:
+        "Your business won't stand still, and your website shouldn't hold it back. We build with the flexibility to evolve alongside your goals.",
+      icon: TrendingUp,
+    },
+  ];
+  
+  export default function AboutValues() {
+    return (
+      <section
+        className={styles.section}
+        aria-labelledby="about-values-title"
+      >
+        <div className={styles.container}>
+          <div className={styles.heading}>
+            <span className={styles.eyebrow}>
+              What Matters to Us
+            </span>
+  
+            <h2 id="about-values-title">Core Values</h2>
+          </div>
+  
+          <div className={styles.valuesGrid}>
+            {values.map((value) => {
+              const Icon = value.icon;
+  
+              return (
+                <article
+                  key={value.id}
+                  className={styles.valueCard}
+                >
+                  <div className={styles.cardTop}>
+                    <span className={styles.number}>
+                      {value.number}
+                    </span>
+  
+                    <Icon
+                      size={28}
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    />
+                  </div>
+  
+                  <h3>{value.title}</h3>
+                  <strong>{value.tagline}</strong>
+                  <p>{value.description}</p>
+                </article>
+              );
+            })}
+          </div>
+  
+          <div className={styles.mobileValues}>
+            {values.map((value) => (
+              <details
+                key={value.id}
+                className={styles.mobileValue}
+              >
+                <summary>
+                  <span className={styles.mobileNumber}>
+                    {value.number}
+                  </span>
+  
+                  <span className={styles.mobileTitle}>
+                    {value.title}
+                  </span>
+  
+                  <span className={styles.toggleIcon} aria-hidden="true">
+  <Plus
+    size={18}
+    strokeWidth={1.75}
+    className={styles.plus}
+  />
+  <Minus
+    size={18}
+    strokeWidth={1.75}
+    className={styles.minus}
+  />
+</span>
+                </summary>
+  
+                <div className={styles.mobileContent}>
+                  <strong>{value.tagline}</strong>
+                  <p>{value.description}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+  

@@ -1,0 +1,191 @@
+
+.section {
+    width: 100%;
+    background: var(--color-background);
+  }
+  
+  .container {
+    width: min(100% - 3rem, 1280px);
+    margin: 0 auto;
+    padding: 2rem 0 2.5rem;
+  }
+  
+  /* Heading */
+  
+  .heading {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  
+    h2 {
+      flex-shrink: 0;
+      margin: 0;
+      color: var(--color-text);
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1.1;
+    }
+  }
+  
+  .headingLine {
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+  }
+  
+  /* Desktop pillars */
+  
+  .pillarsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .pillar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    padding: 0.5rem 2rem;
+    text-align: center;
+  
+    &:not(:last-child) {
+      border-right: 1px solid var(--color-border);
+    }
+  }
+  
+  .iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.65rem;
+    color: var(--color-text);
+  }
+  
+  .pillarContent {
+    h3 {
+      margin: 0 0 0.5rem;
+      color: var(--color-text);
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+    }
+  
+    p {
+      max-width: 310px;
+      margin: 0;
+      color: var(--color-text);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+  }
+  
+  /* Tablet */
+  
+  @media (max-width: 1024px) {
+    .container {
+      padding: 1.75rem 0 2.25rem;
+    }
+  
+    .heading {
+      margin-bottom: 1.25rem;
+  
+      h2 {
+        font-size: clamp(1.85rem, 4vw, 2.5rem);
+      }
+    }
+  
+    .pillar {
+      padding: 0.5rem 1rem;
+    }
+  
+    .iconWrapper svg {
+      width: 29px;
+      height: 29px;
+    }
+  
+    .pillarContent {
+      h3 {
+        font-size: 1.05rem;
+      }
+  
+      p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+      }
+    }
+  }
+  
+  /* Mobile */
+  
+  @media (max-width: 600px) {
+    .container {
+      width: min(100% - 2rem, 1280px);
+      padding: 1.75rem 0 2rem;
+    }
+  
+    .heading {
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+  
+      h2 {
+        flex-shrink: 1;
+        font-size: 1.8rem;
+      }
+    }
+  
+    .pillarsGrid {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+  
+    .pillar {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.15rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      background: var(--color-surface);
+      text-align: left;
+  
+      &:not(:last-child) {
+        border-right: 1px solid var(--color-border);
+      }
+    }
+  
+    .iconWrapper {
+      flex: 0 0 38px;
+      width: 38px;
+      height: 38px;
+      margin: 0;
+      border-radius: 8px;
+      background: var(--color-background);
+  
+      svg {
+        width: 23px;
+        height: 23px;
+      }
+    }
+  
+    .pillarContent {
+      flex: 1;
+      min-width: 0;
+  
+      h3 {
+        margin: 0 0 0.4rem;
+        font-size: 1.05rem;
+      }
+  
+      p {
+        max-width: none;
+        font-size: 0.8rem;
+        line-height: 1.6;
+      }
+    }
+  }
+  

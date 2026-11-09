@@ -1,0 +1,308 @@
+
+/* =========================================
+   SERVICES HERO
+   ========================================= */
+
+   .section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #f7f4eb;
+    background-image: url("/images/illustrations/services-hero.webp");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: min(100% - 3rem, 1280px);
+    min-height: clamp(550px, 45vw, 720px);
+    height: 90svh;
+    margin: 0 auto;
+  }
+  
+  /* =========================================
+     CONTENT
+     ========================================= */
+  
+  .content {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    max-width: 620px;
+    padding: 5rem 0;
+  }
+  
+  .eyebrow {
+    margin: 0 0 1rem;
+    color: var(--color-text);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+  
+  .content h1 {
+    margin: 0;
+    color: var(--color-text);
+    font-family: var(--font-heading);
+    font-size: clamp(2.8rem, 4.2vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.055em;
+    line-height: 1.05;
+  }
+  
+  .description {
+    max-width: 440px;
+    margin: 1.5rem 0 0;
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  /* =========================================
+     BUTTONS
+     ========================================= */
+  
+  .actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .primaryCTA,
+  .secondaryCTA {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 145px;
+    min-height: 46px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+  
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+  
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 4px;
+    }
+  }
+  
+  .primaryCTA {
+    background: var(--color-accent);
+    color: #fff;
+  }
+  
+  .secondaryCTA {
+    border: 1px solid var(--color-text);
+    background: transparent;
+    color: var(--color-text);
+  }
+  
+  /* =========================================
+     SMALL DESKTOP / LARGE TABLET
+     901px - 1200px
+     ========================================= */
+  
+  @media (max-width: 1200px) {
+    .section {
+      background-position: right bottom;
+      background-size: auto 90%;
+    }
+  
+    .container {
+      height: auto;
+      min-height: 550px;
+    }
+  
+    .content {
+      width: 46%;
+      max-width: 480px;
+      padding: 4rem 0;
+    }
+  
+    .content h1 {
+      font-size: clamp(2.5rem, 4.2vw, 3.5rem);
+    }
+  
+    .description {
+      max-width: 390px;
+    }
+  
+    .actions {
+      gap: 0.75rem;
+    }
+  }
+  
+  /* =========================================
+     TABLET
+     601px - 900px
+     ========================================= */
+  
+  @media (max-width: 900px) {
+    .section {
+      // The illustration now occupies its own
+      // reserved area below the content.
+      background-image: none;
+  
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 400px;
+  
+        background-image: url("/images/illustrations/services-hero.webp");
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        background-size: auto 100%;
+  
+        pointer-events: none;
+      }
+    }
+  
+    .container {
+      display: block;
+      width: min(100% - 3rem, 1280px);
+      height: auto;
+      min-height: 0;
+      padding-bottom: 420px;
+    }
+  
+    .content {
+      width: 100%;
+      max-width: 580px;
+      padding: 4rem 0 0;
+    }
+  
+    .content h1 {
+      max-width: 570px;
+      font-size: clamp(2.75rem, 5.5vw, 3.5rem);
+    }
+  
+    .description {
+      max-width: 480px;
+      font-size: 0.95rem;
+    }
+  
+    .actions {
+      margin-top: 1.75rem;
+    }
+  }
+  
+  /* =========================================
+     MOBILE
+     600px and below
+     ========================================= */
+  
+  @media (max-width: 600px) {
+    .section {
+      &::after {
+        height: clamp(260px, 75vw, 340px);
+        background-position: right bottom;
+        background-size: auto 100%;
+      }
+    }
+  
+    .container {
+      width: min(100% - 2rem, 1280px);
+      min-height: 0;
+      padding-bottom: clamp(280px, 80vw, 360px);
+    }
+  
+    .content {
+      width: 100%;
+      max-width: 100%;
+      padding: 3rem 0 0;
+    }
+  
+    .eyebrow {
+      margin-bottom: 0.75rem;
+      font-size: 0.65rem;
+    }
+  
+    .content h1 {
+      max-width: 380px;
+      font-size: clamp(2.25rem, 9vw, 3rem);
+      line-height: 1.08;
+    }
+  
+    .description {
+      max-width: 380px;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+  
+    .actions {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+  
+    .primaryCTA,
+    .secondaryCTA {
+      width: 100%;
+      min-height: 44px;
+    }
+  }
+  
+  /* =========================================
+     SMALL MOBILE
+     375px and below
+     ========================================= */
+  
+  @media (max-width: 375px) {
+    .section {
+      &::after {
+        height: 250px;
+      }
+    }
+  
+    .container {
+      padding-bottom: 265px;
+    }
+  
+    .content h1 {
+      font-size: clamp(2rem, 9vw, 2.5rem);
+    }
+  
+    .description {
+      font-size: 0.85rem;
+    }
+  }
+  
+  /* =========================================
+     REDUCED MOTION
+     ========================================= */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .primaryCTA,
+    .secondaryCTA {
+      transition: none;
+  
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+  

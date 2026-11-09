@@ -1,0 +1,249 @@
+
+/* =========================================
+   CONTACT FORM
+   ========================================= */
+
+   .section {
+    width: 100%;
+    background: var(--palette-cream);
+  }
+  
+  .container {
+    width: min(100% - 3rem, 1280px);
+    margin: 0 auto;
+  }
+  
+  /* =========================================
+     FORM CARD
+     ========================================= */
+  
+  .formCard {
+    width: 100%;
+    padding: 2rem;
+  
+    border: 1px solid var(--palette-forest);
+    border-radius: 16px;
+    background: var(--palette-forest);
+  
+    h2 {
+      margin: 0 0 1.5rem;
+  
+      color: var(--palette-cream);
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 2.3vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+    }
+  }
+  
+  /* =========================================
+     FORM GRID
+     ========================================= */
+  
+  .formGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 1.25rem;
+  }
+  
+  /* =========================================
+     FIELDS
+     ========================================= */
+  
+  .field {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 0.45rem;
+  
+    label {
+      color: var(--palette-cream);
+      font-size: 0.8rem;
+      font-weight: 700;
+      line-height: 1.4;
+  
+      span {
+        color: var(--palette-orange);
+      }
+    }
+  
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-width: 0;
+  
+      border: 1px solid var(--palette-sage);
+      border-radius: 5px;
+      background: var(--palette-cream);
+      color: var(--palette-forest);
+  
+      font: inherit;
+      font-size: 0.875rem;
+  
+      transition:
+        border-color 0.2s ease,
+        outline-color 0.2s ease;
+    }
+  
+    input,
+    select {
+      min-height: 44px;
+      padding: 0.65rem 0.8rem;
+    }
+  
+    textarea {
+      min-height: 125px;
+      padding: 0.8rem;
+      line-height: 1.6;
+      resize: vertical;
+    }
+  
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--palette-orange);
+      outline-offset: 2px;
+      border-color: var(--palette-orange);
+    }
+  
+    select {
+      cursor: pointer;
+    }
+  
+    option {
+      background: var(--palette-cream);
+      color: var(--palette-forest);
+    }
+  }
+  
+  .fullWidth {
+    grid-column: 1 / -1;
+  }
+  
+  /* =========================================
+     SUBMIT BUTTON
+     ========================================= */
+  
+  .submitButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    min-width: 160px;
+    min-height: 44px;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+  
+    border: 1px solid var(--palette-orange);
+    border-radius: 6px;
+    background: var(--palette-orange);
+    color: var(--palette-cream);
+  
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+  
+    transition:
+      transform 0.2s ease,
+      filter 0.2s ease;
+  
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      filter: brightness(0.92);
+    }
+  
+    &:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+  
+    &:focus-visible {
+      outline: 2px solid var(--palette-cream);
+      outline-offset: 4px;
+    }
+  }
+  
+  /* =========================================
+     TABLET
+     ========================================= */
+  
+  @media (max-width: 1024px) {
+    .formCard {
+      padding: 1.75rem;
+  
+      h2 {
+        font-size: 1.85rem;
+      }
+    }
+  
+    .formGrid {
+      gap: 0.9rem 1rem;
+    }
+  }
+  
+  /* =========================================
+     MOBILE
+     ========================================= */
+  
+  @media (max-width: 600px) {
+    .container {
+      width: min(100% - 2rem, 1280px);
+    }
+  
+    .formCard {
+      padding: 1.25rem;
+      border-radius: 12px;
+  
+      h2 {
+        margin-bottom: 1.25rem;
+        font-size: 1.5rem;
+      }
+    }
+  
+    .formGrid {
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+  
+    .field {
+      label {
+        font-size: 0.75rem;
+      }
+  
+      input,
+      select,
+      textarea {
+        font-size: 0.825rem;
+      }
+    }
+  
+    .submitButton {
+      width: 100%;
+      margin-top: 1.25rem;
+    }
+  }
+  
+  /* =========================================
+     REDUCED MOTION
+     ========================================= */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .field {
+      input,
+      select,
+      textarea {
+        transition: none;
+      }
+    }
+  
+    .submitButton {
+      transition: none;
+  
+      &:hover:not(:disabled) {
+        transform: none;
+      }
+    }
+  }
+  
