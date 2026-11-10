@@ -1,4 +1,5 @@
 
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./Hero.module.scss";
 
@@ -8,7 +9,7 @@ export default function Hero() {
       <div className={styles.container}>
         <div className={styles.content}>
           <p className={styles.eyebrow}>
-            A small web studio for local business
+          A small web studio for local businesses
           </p>
 
           <h1 id="hero-title" className={styles.title}>
@@ -22,25 +23,30 @@ export default function Hero() {
           </h1>
 
           <p className={styles.description}>
-            Custom websites, simple solutions, and real support
-            for businesses that do things the right way.
+          Custom web design and development for small businesses in Charlotte, NC and beyond. Thoughtful solutions, reliable support, and websites built to help your business grow.
           </p>
 
           <div className={styles.actions}>
-            <Link
-              href="/contact"
-              className={styles.primaryButton}
-            >
+            <Link href="/contact" className={styles.primaryButton}>
               Start a Project
             </Link>
 
-            <Link
-              href="/work"
-              className={styles.secondaryButton}
-            >
+            <Link href="/work" className={styles.secondaryButton}>
               View Our Work
             </Link>
           </div>
+        </div>
+
+        <div className={styles.visual}>
+          <Image
+            src="/images/illustrations/otter-at-desk.webp"
+            alt="Illustration of the Goodform otter working at a desk"
+            width={1000}
+            height={1000}
+            priority
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 80vw, (max-width: 1200px) 50vw, 620px"
+            className={styles.illustration}
+          />
         </div>
       </div>
     </section>

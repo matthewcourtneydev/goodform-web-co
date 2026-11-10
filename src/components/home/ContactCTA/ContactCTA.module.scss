@@ -1,19 +1,45 @@
 
+@use "../../../styles/mixins/buttons" as buttons;
+
+/* =========================================
+   CONTACT CTA
+   ========================================= */
+
 .section {
   width: 100%;
   background: var(--color-background);
 }
 
+/* =========================================
+   CONTAINER
+   ========================================= */
+
 .container {
-  width: min(100% - 3rem, 1280px);
+  width: min(100% - 3rem, 1480px);
   margin: 0 auto;
   padding: 4rem 0;
 
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(0, 1.15fr);
   align-items: center;
   gap: clamp(2rem, 6vw, 6rem);
 }
+
+/* =========================================
+   REVEAL WRAPPERS
+   ========================================= */
+
+.introReveal,
+.formReveal {
+  min-width: 0;
+  width: 100%;
+}
+
+/* =========================================
+   INTRODUCTION
+   ========================================= */
 
 .intro {
   padding-top: 0.75rem;
@@ -21,6 +47,7 @@
 
 .eyebrow {
   margin: 0 0 0.85rem;
+
   color: var(--color-text);
   font-size: 0.7rem;
   font-weight: 700;
@@ -30,6 +57,7 @@
 
 .intro h2 {
   margin: 0;
+
   color: var(--color-text);
   font-family: var(--font-heading);
   font-size: clamp(2.5rem, 4vw, 3.75rem);
@@ -41,6 +69,7 @@
 .description {
   max-width: 390px;
   margin: 1.5rem 0 0;
+
   color: var(--color-text);
   font-size: 0.95rem;
   line-height: 1.75;
@@ -49,25 +78,32 @@
 .supporting {
   max-width: 350px;
   margin: 1.25rem 0 0;
+
   color: var(--color-text-muted);
   font-size: 0.875rem;
   line-height: 1.7;
 }
 
-// Forest-green form container
+/* =========================================
+   FORM CONTAINER
+   ========================================= */
+
 .formContainer {
   min-width: 0;
   padding: 2rem;
+
   border: 1px solid var(--palette-forest);
   border-radius: 10px;
   background: var(--palette-forest);
 
-  // Form labels
+  /* Form labels */
+
   label {
     color: var(--palette-cream);
   }
 
-  // Form inputs
+  /* Form inputs */
+
   input,
   select,
   textarea {
@@ -87,7 +123,8 @@
     }
   }
 
-  // Submit button
+  /* Submit button */
+
   button[type="submit"] {
     background: var(--palette-orange);
     color: #fff;
@@ -116,23 +153,32 @@
     }
   }
 
-  // Form helper text
+  /* Helper text */
+
   small {
     color: var(--palette-cream);
     opacity: 0.75;
   }
 
-  // Other form descriptions or notices
+  /* Form status messages */
+
   [role="status"] {
     color: var(--palette-cream);
   }
 }
 
+/* =========================================
+   MOBILE CTA
+   ========================================= */
+
 .mobileCTA {
   display: none;
 }
 
-// Tablet
+/* =========================================
+   TABLET
+   ========================================= */
+
 @media (max-width: 1024px) {
   .container {
     grid-template-columns: 1fr;
@@ -154,10 +200,13 @@
   }
 }
 
-// Mobile
+/* =========================================
+   MOBILE
+   ========================================= */
+
 @media (max-width: 600px) {
   .container {
-    width: min(100% - 2rem, 1280px);
+    width: min(100% - 2rem, 1480px);
     padding: 3rem 0;
   }
 
@@ -174,43 +223,28 @@
     font-size: 0.825rem;
   }
 
-  .formContainer {
+  /* Hide embedded form on mobile */
+
+  .formReveal {
     display: none;
   }
 
+  /* Show mobile CTA */
+
   .mobileCTA {
+    @include buttons.button-primary;
+
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px;
     margin-top: 1.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    background: var(--palette-orange);
-    color: #fff;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-decoration: none;
-
-    transition:
-      background-color 200ms ease,
-      transform 200ms ease;
-
-    &:hover {
-      filter: brightness(0.92);
-      transform: translateY(-2px);
-    }
-
-    &:focus-visible {
-      outline: 2px solid var(--color-text);
-      outline-offset: 3px;
-    }
   }
 }
 
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
 @media (prefers-reduced-motion: reduce) {
-  .formContainer button[type="submit"],
-  .mobileCTA {
+  .formContainer button[type="submit"] {
     transition: none;
   }
 }

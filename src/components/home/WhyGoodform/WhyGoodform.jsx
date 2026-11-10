@@ -1,4 +1,5 @@
 
+import Reveal from "@/components/animations/Reveal";
 import styles from "./WhyGoodform.module.scss";
 
 const values = [
@@ -68,30 +69,44 @@ export default function WhyGoodform() {
       aria-labelledby="why-goodform-title"
     >
       <div className={styles.container}>
-        <div className={styles.intro}>
-          <p className={styles.eyebrow}>The Goodform Difference</p>
+        <Reveal animation="fadeUp" duration={650}>
+          <div className={styles.intro}>
+            <p className={styles.eyebrow}>
+              The Goodform Difference
+            </p>
 
-          <h2 id="why-goodform-title">Why Goodform?</h2>
+            <h2 id="why-goodform-title">
+              Why Goodform?
+            </h2>
 
-          <p className={styles.introDescription}>
-            Good design should feel personal, work beautifully,
-            and make a real difference for your business.
-            That's the thinking behind everything we build.
-          </p>
-        </div>
+            <p className={styles.introDescription}>
+              Good design should feel personal, work beautifully,
+              and make a real difference for your business.
+              That's the thinking behind everything we build.
+            </p>
+          </div>
+        </Reveal>
 
         <div className={styles.values}>
-          {values.map((value) => (
-            <div key={value.title} className={styles.value}>
-              <div className={styles.icon}>
-                <ValueIcon type={value.icon} />
-              </div>
+          {values.map((value, index) => (
+            <Reveal
+              key={value.title}
+              animation="fadeUp"
+              delay={index * 120}
+              duration={650}
+              className={styles.valueReveal}
+            >
+              <div className={styles.value}>
+                <div className={styles.icon}>
+                  <ValueIcon type={value.icon} />
+                </div>
 
-              <div className={styles.valueContent}>
-                <h3>{value.title}</h3>
-                <p>{value.description}</p>
+                <div className={styles.valueContent}>
+                  <h3>{value.title}</h3>
+                  <p>{value.description}</p>
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

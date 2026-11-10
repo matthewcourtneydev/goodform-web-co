@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { projects } from "@/data/projects";
+import Reveal from "@/components/animations/Reveal";
 import styles from "./FeaturedWork.module.scss";
 
 const projectAccents = {
@@ -70,104 +71,136 @@ export default function FeaturedWork() {
         </button>
 
         <div className={styles.project}>
-          <div className={styles.visual}>
-            <div
-              className={styles.accentShape}
-              aria-hidden="true"
-            />
+          <Reveal
+            className={styles.visualReveal}
+            animation="fadeUp"
+            duration={750}
+          >
+            <div className={styles.visual}>
+              <div
+                className={styles.accentShape}
+                aria-hidden="true"
+              />
 
-            <div
-              className={styles.accentShapeLeft}
-              aria-hidden="true"
-            />
+              <div
+                className={styles.accentShapeLeft}
+                aria-hidden="true"
+              />
 
-            <div className={styles.deviceImage}>
-              {project.image ? (
-                <Image
-                  key={project.id}
-                  src={project.image}
-                  alt={project.imageAlt}
-                  fill
-                  sizes="(max-width: 600px) 90vw, (max-width: 1024px) 80vw, 55vw"
-                  className={styles.projectImage}
-                  priority={activeIndex === 0}
-                />
-              ) : (
-                <div
-                  className={styles.imagePlaceholder}
-                  role="img"
-                  aria-label={project.imageAlt}
-                >
-                  <svg
-                    viewBox="0 0 120 90"
-                    fill="none"
-                    aria-hidden="true"
+              <div className={styles.deviceImage}>
+                {project.image ? (
+                  <Image
+                    key={project.id}
+                    src={project.image}
+                    alt={project.imageAlt}
+                    fill
+                    sizes="(max-width: 600px) 90vw, (max-width: 1024px) 80vw, 55vw"
+                    className={styles.projectImage}
+                    priority={activeIndex === 0}
+                  />
+                ) : (
+                  <div
+                    className={styles.imagePlaceholder}
+                    role="img"
+                    aria-label={project.imageAlt}
                   >
-                    <circle
-                      cx="87"
-                      cy="25"
-                      r="9"
-                      fill="#bdbdbd"
-                    />
-                    <path
-                      d="M15 70 46 35 67 57 79 45 105 70Z"
-                      fill="#bdbdbd"
-                    />
-                  </svg>
-                </div>
-              )}
+                    <svg
+                      viewBox="0 0 120 90"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <circle
+                        cx="87"
+                        cy="25"
+                        r="9"
+                        fill="#bdbdbd"
+                      />
+                      <path
+                        d="M15 70 46 35 67 57 79 45 105 70Z"
+                        fill="#bdbdbd"
+                      />
+                    </svg>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          </Reveal>
 
           <div className={styles.content}>
-            <p className={styles.eyebrow}>
-              Featured Work
-            </p>
-
-            <h2
-              id="featured-work-title"
-              aria-live="polite"
-              aria-atomic="true"
+            <Reveal
+              animation="fadeUp"
+              delay={100}
+              duration={550}
             >
-              {project.name}
-            </h2>
+              <p className={styles.eyebrow}>
+                Featured Work
+              </p>
+            </Reveal>
 
-            <p className={styles.description}>
-              {project.description}
-            </p>
-
-            <Link
-              href={`/work/${project.slug}`}
-              className={styles.caseStudyButton}
+            <Reveal
+              animation="fadeUp"
+              delay={180}
+              duration={650}
             >
-              View Case Study
-            </Link>
+              <h2 id="featured-work-title">
+                {project.name}
+              </h2>
+            </Reveal>
 
-            <div
-              className={styles.pagination}
-              role="group"
-              aria-label="Choose featured project"
+            <Reveal
+              animation="fadeUp"
+              delay={260}
+              duration={650}
             >
-              {projects.map((item, index) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  className={`${styles.paginationItem} ${
-                    index === activeIndex
-                      ? styles.activePaginationItem
-                      : ""
-                  }`}
-                  aria-label={`Show ${item.name}`}
-                  aria-pressed={index === activeIndex}
-                  onClick={() => goToProject(index)}
-                >
-                  <span
-                    className={styles.paginationLine}
-                    aria-hidden="true"
-                  />
-                </button>
-              ))}
-            </div>
+              <p className={styles.description}>
+                {project.description}
+              </p>
+            </Reveal>
+
+            <Reveal
+              animation="fadeUp"
+              delay={340}
+              duration={600}
+            >
+              <Link
+                href={`/work/${project.slug}`}
+                className={styles.caseStudyButton}
+              >
+                View Case Study
+              </Link>
+            </Reveal>
+
+            <Reveal
+              animation="fadeUp"
+              delay={420}
+              duration={600}
+            >
+              <div
+                className={styles.pagination}
+                role="group"
+                aria-label="Choose featured project"
+              >
+                {projects.map((item, index) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    className={`${styles.paginationItem} ${
+                      index === activeIndex
+                        ? styles.activePaginationItem
+                        : ""
+                    }`}
+                    aria-label={`Show ${item.name}`}
+                    aria-pressed={index === activeIndex}
+                    onClick={() => goToProject(index)}
+                  >
+                    <span
+                      className={styles.paginationLine}
+                      aria-hidden="true"
+                    />
+                  </button>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </div>
 

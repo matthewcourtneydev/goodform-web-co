@@ -14,7 +14,7 @@
      ========================================= */
   
   .container {
-    width: min(100% - 3rem, 1280px);
+    width: min(100% - 3rem, 1480px);
     margin: 0 auto;
     padding: 4.5rem 0;
   }
@@ -28,6 +28,7 @@
   
     h2 {
       margin: 0 0 0.75rem;
+  
       color: var(--palette-forest);
       font-family: var(--font-heading);
       font-size: clamp(1.75rem, 2.4vw, 2.3rem);
@@ -39,6 +40,7 @@
     p {
       max-width: 520px;
       margin: 0;
+  
       color: var(--palette-forest);
       font-size: 0.9rem;
       line-height: 1.65;
@@ -52,20 +54,41 @@
   .services {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+  }
+  
+  /*
+   * Stationary grid wrapper owns the divider.
+   * This prevents reveal transforms from
+   * moving the column borders.
+   */
+  
+  .serviceItem {
+    min-width: 0;
+    border-right: 1px solid rgba(15, 45, 36, 0.22);
+  
+    &:last-child {
+      border-right: 0;
+    }
+  }
+  
+  .serviceReveal {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
   }
   
   .service {
     display: flex;
     flex-direction: column;
     align-items: center;
+  
+    width: 100%;
+    height: 100%;
     min-width: 0;
     padding: 1rem 1.5rem;
-    border-right: 1px solid rgba(15, 45, 36, 0.22);
-    text-align: center;
   
-    &:last-child {
-      border-right: 0;
-    }
+    text-align: center;
   }
   
   /* =========================================
@@ -76,12 +99,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+  
     width: 44px;
     height: 44px;
     margin-bottom: 1rem;
+  
     color: var(--palette-forest);
   
     svg {
+      display: block;
       width: 34px;
       height: 34px;
     }
@@ -94,6 +121,7 @@
   .serviceContent {
     h3 {
       margin: 0 0 0.65rem;
+  
       color: var(--palette-forest);
       font-family: var(--font-heading);
       font-size: 1rem;
@@ -104,6 +132,7 @@
     p {
       max-width: 250px;
       margin: 0 auto;
+  
       color: var(--palette-forest);
       font-size: 0.825rem;
       line-height: 1.65;
@@ -128,11 +157,15 @@
       gap: 0.75rem;
     }
   
-    .service {
-      padding: 1.5rem 1.25rem;
+    .serviceItem {
       border: 1px solid rgba(15, 45, 36, 0.1);
       border-radius: 8px;
       background: var(--palette-cream);
+      overflow: hidden;
+    }
+  
+    .service {
+      padding: 1.5rem 1.25rem;
     }
   
     .serviceContent p {
@@ -146,7 +179,7 @@
   
   @media (max-width: 600px) {
     .container {
-      width: min(100% - 2rem, 1280px);
+      width: min(100% - 2rem, 1480px);
       padding: 3rem 0;
     }
   
@@ -188,6 +221,8 @@
     }
   
     .serviceContent {
+      min-width: 0;
+  
       h3 {
         margin: 0 0 0.35rem;
         font-size: 0.9rem;

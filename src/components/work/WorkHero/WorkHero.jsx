@@ -1,3 +1,5 @@
+
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./WorkHero.module.scss";
 
@@ -9,19 +11,27 @@ export default function WorkHero() {
     >
       <div className={styles.container}>
         <div className={styles.content}>
-          <span className={styles.eyebrow}>
+          <p className={styles.eyebrow}>
             Our Work
-          </span>
+          </p>
 
-          <h1 id="work-hero-title">
-            Real businesses.
-            <br />
-            Thoughtful solutions.
+          <h1
+            id="work-hero-title"
+            className={styles.title}
+          >
+            <span className={styles.titlePrimary}>
+              Real businesses.
+            </span>
+            <span className={styles.titleSecondary}>
+              Thoughtful solutions.
+            </span>
           </h1>
 
-          <p>
-            A look at the websites, brands, and digital
-            experiences we've built for small businesses.
+          <p className={styles.description}>
+            Explore custom websites, branding, and digital
+            experiences we've created for small businesses.
+            See how thoughtful design and development bring
+            each business's vision to life.
           </p>
 
           <div className={styles.actions}>
@@ -33,12 +43,24 @@ export default function WorkHero() {
             </Link>
 
             <Link
-              href="/contact"
+              href="/services"
               className={styles.secondaryButton}
             >
-              Discuss Your Project
+              Explore Our Services
             </Link>
           </div>
+        </div>
+
+        <div className={styles.visual}>
+          <Image
+            src="/images/illustrations/work-hero.webp"
+            alt="Goodform Web Co. illustration accompanying our portfolio of website design projects"
+            width={1000}
+            height={1000}
+            priority
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, (max-width: 1200px) 50vw, 720px"
+            className={styles.illustration}
+          />
         </div>
       </div>
     </section>

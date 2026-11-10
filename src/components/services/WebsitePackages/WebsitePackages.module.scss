@@ -1,377 +1,434 @@
 
+@use "../../../styles/mixins/buttons" as buttons;
+
+/* =========================================
+   WEBSITE PACKAGES
+   ========================================= */
+
 .section {
-    width: 100%;
+  width: 100%;
+  background: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.container {
+  width: min(100% - 3rem, 1480px);
+  margin: 0 auto;
+  padding: 3.5rem 0;
+}
+
+/* =========================================
+   INTRODUCTION
+   ========================================= */
+
+.intro {
+  margin-bottom: 1.75rem;
+
+  h2 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 2.4vw, 2.3rem);
+    letter-spacing: -0.045em;
+    line-height: 1.1;
+  }
+
+  p {
+    max-width: 640px;
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+}
+
+/* =========================================
+   DESKTOP LAYOUT
+   ========================================= */
+
+.desktopLayout {
+  display: grid;
+  grid-template-columns:
+    minmax(220px, 0.8fr)
+    minmax(0, 1.2fr);
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+.packageList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.packageOptionReveal {
+  width: 100%;
+  min-width: 0;
+}
+
+.packageOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  width: 100%;
+  min-height: 56px;
+  padding: 0.85rem 1.1rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+
+  background: var(--color-surface);
+  color: var(--color-text);
+
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+
+  &:hover:not(.active) {
     background: var(--color-background);
-    border-bottom: 1px solid var(--color-border);
   }
-  
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+}
+
+.active {
+  background: var(--color-button-primary);
+  color: var(--color-button-primary-text);
+}
+
+.optionRight {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  white-space: nowrap;
+
+  strong {
+    font-size: 0.875rem;
+  }
+
+  span {
+    font-size: 1.35rem;
+    font-weight: 400;
+  }
+}
+
+/* =========================================
+   DETAILS PANEL
+   ========================================= */
+
+.detailsReveal {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+}
+
+.detailsPanel {
+  width: 100%;
+  min-width: 0;
+  padding: 1.5rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: 9px;
+  background: var(--color-surface);
+}
+
+.detailsInner {
+  width: 100%;
+}
+
+.detailsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+
+  h3 {
+    margin: 0 0 0.4rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    letter-spacing: -0.035em;
+    line-height: 1.2;
+  }
+
+  p {
+    max-width: 420px;
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+}
+
+.priceBadge {
+  flex-shrink: 0;
+  padding: 0.4rem 0.9rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  background: var(--color-background);
+
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* =========================================
+   DETAILS COLUMNS
+   ========================================= */
+
+.detailsColumns {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 1.5rem;
+  padding-top: 1.25rem;
+}
+
+.detailsGroup {
+  min-width: 0;
+
+  &:first-child {
+    padding-right: 1.5rem;
+    border-right: 1px solid var(--color-border);
+  }
+
+  h4 {
+    margin: 0 0 0.85rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    position: relative;
+    padding-left: 1.4rem;
+
+    color: var(--color-text);
+    font-size: 0.825rem;
+    line-height: 1.45;
+
+    &::before {
+      content: "✓";
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-weight: 700;
+    }
+  }
+}
+
+/* =========================================
+   DETAILS CTA
+   ========================================= */
+
+.detailsCTA {
+  @include buttons.button-primary;
+
+  display: inline-flex;
+  margin-top: 1.75rem;
+  padding: 0.7rem 1.25rem;
+}
+
+/* =========================================
+   MOBILE LAYOUT (HIDDEN ON DESKTOP)
+   ========================================= */
+
+.mobileLayout {
+  display: none;
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1024px) {
   .container {
-    width: min(100% - 3rem, 1280px);
-    margin: 0 auto;
-    padding: 3.5rem 0;
+    padding: 2.75rem 0;
   }
-  
-  .intro {
-    margin-bottom: 1.75rem;
-  
-    h2 {
-      margin: 0 0 0.5rem;
-      font-family: var(--font-heading);
-      font-size: clamp(1.75rem, 2.4vw, 2.3rem);
-      letter-spacing: -0.045em;
-      line-height: 1.1;
-    }
-  
-    p {
-      max-width: 640px;
-      margin: 0;
-      color: var(--color-text-muted);
-      font-size: 0.9rem;
-      line-height: 1.55;
-    }
-  }
-  
+
   .desktopLayout {
-    display: grid;
-    grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
-    gap: 1.5rem;
-    align-items: stretch;
+    display: none;
   }
-  
-  .packageList {
+
+  .mobileLayout {
     display: flex;
     flex-direction: column;
     gap: 0.65rem;
   }
-  
-  .packageOption {
+
+  .mobilePackageReveal,
+  .mobilePackage {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .mobileToggle {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+
     width: 100%;
-    min-height: 56px;
-    padding: 0.85rem 1.1rem;
+    min-height: 46px;
+    padding: 0.75rem 1rem;
+
     border: 1px solid var(--color-border);
-    border-radius: 7px;
+    border-radius: 6px;
+
     background: var(--color-surface);
     color: var(--color-text);
+
     font: inherit;
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 700;
     text-align: left;
     cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
-  
-    &:hover:not(.active) {
-      background: var(--color-background);
-    }
-  
+
     &:focus-visible {
       outline: 2px solid var(--color-primary);
       outline-offset: 3px;
     }
   }
-  
-  .active {
+
+  .mobileActive {
     background: var(--color-button-primary);
     color: var(--color-button-primary-text);
   }
-  
-  .optionRight {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-    white-space: nowrap;
-  
-    strong {
-      font-size: 0.875rem;
-    }
-  
-    span {
-      font-size: 1.35rem;
-      font-weight: 400;
-    }
-  }
-  
-  .detailsPanel {
-    min-width: 0;
-    padding: 1.5rem;
-    border: 1px solid var(--color-border);
-    border-radius: 9px;
-    background: var(--color-surface);
-  }
-  
-  .detailsInner {
-    width: 100%;
-  }
-  
-  .detailsHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--color-border);
-  
-    h3 {
-      margin: 0 0 0.4rem;
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      letter-spacing: -0.035em;
-      line-height: 1.2;
-    }
-  
-    p {
-      max-width: 420px;
-      margin: 0;
-      color: var(--color-text-muted);
-      font-size: 0.85rem;
-      line-height: 1.55;
-    }
-  }
-  
-  .priceBadge {
-    flex-shrink: 0;
-    padding: 0.4rem 0.9rem;
-    border-radius: 100px;
-    background: var(--color-background);
-    border: 1px solid var(--color-border);
-    font-size: 0.9rem;
-    font-weight: 700;
-    white-space: nowrap;
-  }
-  
-  .detailsColumns {
-    display: grid;
-    grid-template-columns: 1fr 1.25fr;
-    gap: 1.5rem;
-    padding-top: 1.25rem;
-  }
-  
-  .detailsGroup {
-    min-width: 0;
-  
-    &:first-child {
-      padding-right: 1.5rem;
-      border-right: 1px solid var(--color-border);
-    }
-  
-    h4 {
-      margin: 0 0 0.85rem;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-  
-    ul {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-  
-    li {
-      position: relative;
-      padding-left: 1.4rem;
-      color: var(--color-text);
-      font-size: 0.825rem;
-      line-height: 1.45;
-  
-      &::before {
-        content: "✓";
-        position: absolute;
-        left: 0;
-        top: 0;
-        font-weight: 700;
-      }
-    }
-  }
-  
 
-  .detailsCTA {
-    display: inline-flex;
+  .mobilePrice {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    min-height: 42px;
-    margin-top: 1.75rem;
-    padding: 0.7rem 1.25rem;
-    border: 0;
-    border-radius: 5px;
-  
-    background: var(--palette-orange);
-    color: var(--palette-cream);
-  
-    font-size: 0.825rem;
-    font-weight: 600;
-    text-decoration: none;
-  
-    transition: background 0.2s ease;
-  
-    &:hover {
-      background: var(--palette-orange);
-      filter: brightness(0.92);
-    }
-  
-    &:focus-visible {
-      outline: 2px solid var(--palette-forest);
-      outline-offset: 3px;
-    }
+    gap: 1rem;
+    white-space: nowrap;
+    font-size: 0.85rem;
   }
-  
-  
-  .mobileLayout {
-    display: none;
-  }
-  
-  /* Tablet */
-  
-  @media (max-width: 1024px) {
-    .container {
-      padding: 2.75rem 0;
-    }
-  
-    .desktopLayout {
+
+  .mobileDetails {
+    margin-top: 0.65rem;
+    padding: 1.5rem;
+
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface);
+
+    &[hidden] {
       display: none;
     }
-  
-    .mobileLayout {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 2rem, 1480px);
+    padding: 2.25rem 0;
+  }
+
+  .intro {
+    margin-bottom: 1.25rem;
+
+    h2 {
+      font-size: 1.8rem;
     }
-  
-    .mobilePackage {
-      min-width: 0;
-    }
-  
-    .mobileToggle {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      width: 100%;
-      min-height: 46px;
-      padding: 0.75rem 1rem;
-      border: 1px solid var(--color-border);
-      border-radius: 6px;
-      background: var(--color-surface);
-      color: var(--color-text);
-      font: inherit;
-      font-size: 0.875rem;
-      font-weight: 700;
-      text-align: left;
-      cursor: pointer;
-    }
-  
-    .mobileActive {
-      background: var(--color-button-primary);
-      color: var(--color-button-primary-text);
-    }
-  
-    .mobilePrice {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      white-space: nowrap;
-      font-size: 0.85rem;
-    }
-  
-    .mobileDetails {
-      margin-top: 0.65rem;
-      padding: 1.5rem;
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      background: var(--color-surface);
-    }
-  
-    .detailsColumns {
-      grid-template-columns: 1fr 1.25fr;
+
+    p {
+      font-size: 0.825rem;
     }
   }
-  
-  /* Mobile */
-  
-  @media (max-width: 600px) {
-    .container {
-      width: min(100% - 2rem, 1280px);
-      padding: 2.25rem 0;
+
+  .mobileLayout {
+    gap: 0.5rem;
+  }
+
+  .mobileToggle {
+    min-height: 42px;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .mobilePrice {
+    gap: 0.65rem;
+    font-size: 0.8rem;
+  }
+
+  .mobileDetails {
+    padding: 1rem;
+  }
+
+  .detailsHeader {
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+
+    h3 {
+      font-size: 1.25rem;
     }
-  
-    .intro {
-      margin-bottom: 1.25rem;
-  
-      h2 {
-        font-size: 1.8rem;
-      }
-  
-      p {
-        font-size: 0.825rem;
-      }
-    }
-  
-    .mobileLayout {
-      gap: 0.5rem;
-    }
-  
-    .mobileToggle {
-      min-height: 42px;
-      padding: 0.65rem 0.75rem;
+
+    p {
       font-size: 0.8rem;
-    }
-  
-    .mobilePrice {
-      gap: 0.65rem;
-      font-size: 0.8rem;
-    }
-  
-    .mobileDetails {
-      padding: 1rem;
-    }
-  
-    .detailsHeader {
-      gap: 0.5rem;
-      padding-bottom: 1rem;
-  
-      h3 {
-        font-size: 1.25rem;
-      }
-  
-      p {
-        font-size: 0.8rem;
-      }
-    }
-  
-    .priceBadge {
-      padding: 0.3rem 0.6rem;
-      font-size: 0.8rem;
-    }
-  
-    .detailsColumns {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-      padding-top: 1rem;
-    }
-  
-    .detailsGroup {
-      &:first-child {
-        padding: 0;
-        border: 0;
-      }
-  
-      h4 {
-        margin-bottom: 0.6rem;
-        font-size: 0.825rem;
-      }
-  
-      ul {
-        gap: 0.5rem;
-      }
-  
-      li {
-        font-size: 0.775rem;
-      }
     }
   }
-  
+
+  .priceBadge {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .detailsColumns {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding-top: 1rem;
+  }
+
+  .detailsGroup {
+    &:first-child {
+      padding: 0;
+      border: 0;
+    }
+
+    h4 {
+      margin-bottom: 0.6rem;
+      font-size: 0.825rem;
+    }
+
+    ul {
+      gap: 0.5rem;
+    }
+
+    li {
+      font-size: 0.775rem;
+    }
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .packageOption {
+    transition: none;
+  }
+}

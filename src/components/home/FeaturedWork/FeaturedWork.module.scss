@@ -1,4 +1,10 @@
 
+@use "../../../styles/mixins/buttons" as buttons;
+
+/* =========================================
+   FEATURED WORK
+   ========================================= */
+
 .section {
   width: 100%;
   overflow: hidden;
@@ -9,37 +15,62 @@
   --project-accent-secondary: #91a181;
 }
 
+/* =========================================
+   CONTAINER
+   ========================================= */
+
 .container {
   position: relative;
-  width: min(100% - 3rem, 1320px);
+  width: min(100% - 3rem, 1480px);
   margin: 0 auto;
-  padding: 4.5rem 4rem;
+  padding: 4.5rem 3.5rem;
 }
+
+/* =========================================
+   PROJECT LAYOUT
+   ========================================= */
 
 .project {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(0, 0.85fr);
   align-items: center;
-  gap: 4rem;
+  gap: clamp(2rem, 4vw, 4rem);
 }
+
+/* =========================================
+   SCROLL REVEAL WRAPPER
+   ========================================= */
+
+.visualReveal {
+  width: 100%;
+  min-width: 0;
+}
+
+/* =========================================
+   PROJECT VISUAL
+   ========================================= */
 
 .visual {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 100%;
   min-width: 0;
   aspect-ratio: 1.55;
   isolation: isolate;
 }
 
-// Main organic shape
+/* Main organic shape */
+
 .accentShape {
   position: absolute;
   z-index: 0;
 
-  top: 0%;
+  top: 0;
   left: 29%;
   width: 72%;
   height: 88%;
@@ -54,10 +85,12 @@
   transform: rotate(-12deg);
 
   pointer-events: none;
+
   transition: background-color 350ms ease;
 }
 
-// Smaller organic shape peeking out on the left
+/* Smaller organic shape */
+
 .accentShapeLeft {
   position: absolute;
   z-index: 0;
@@ -77,12 +110,18 @@
   transform: rotate(-25deg);
 
   pointer-events: none;
+
   transition: background-color 350ms ease;
 }
+
+/* =========================================
+   DEVICE IMAGE
+   ========================================= */
 
 .deviceImage {
   position: relative;
   z-index: 2;
+
   width: 108%;
   height: 100%;
   flex-shrink: 0;
@@ -91,21 +130,50 @@
 .projectImage {
   object-fit: contain;
   object-position: center;
+
+  animation: projectImageEnter 450ms
+    cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
+
+@keyframes projectImageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================
+   IMAGE PLACEHOLDER
+   ========================================= */
 
 .imagePlaceholder {
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #dedede, #c8c8c8);
+
+  background: linear-gradient(
+    135deg,
+    #dedede,
+    #c8c8c8
+  );
 
   svg {
     width: 35%;
     max-width: 170px;
   }
 }
+
+/* =========================================
+   PROJECT CONTENT
+   ========================================= */
 
 .content {
   position: relative;
@@ -115,6 +183,7 @@
 
 .eyebrow {
   margin: 0 0 0.75rem;
+
   color: var(--color-text-muted);
   font-size: 0.7rem;
   font-weight: 700;
@@ -124,6 +193,7 @@
 
 .content h2 {
   margin: 0;
+
   font-family: var(--font-heading);
   font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 700;
@@ -135,35 +205,23 @@
 .description {
   max-width: 430px;
   margin: 1.25rem 0 1.5rem;
+
   color: var(--color-text-muted);
   font-size: 1rem;
   line-height: 1.65;
 }
 
+/* =========================================
+   CASE STUDY BUTTON
+   ========================================= */
+
 .caseStudyButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 0.75rem 1.4rem;
-  background: var(--color-button-primary);
-  color: var(--color-button-primary-text);
-  border-radius: 5px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 200ms ease, opacity 200ms ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-text);
-    outline-offset: 4px;
-  }
+  @include buttons.button-primary;
 }
+
+/* =========================================
+   PAGINATION
+   ========================================= */
 
 .pagination {
   display: flex;
@@ -176,12 +234,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 28px;
   height: 30px;
   padding: 0;
+
   border: 0;
   background: transparent;
   cursor: pointer;
+
   transition: width 250ms ease;
 
   &:hover .paginationLine {
@@ -199,6 +260,7 @@
   display: block;
   width: 18px;
   height: 4px;
+
   border-radius: 10px;
   background: var(--color-text-muted);
   opacity: 0.35;
@@ -218,6 +280,10 @@
     opacity: 1;
   }
 }
+
+/* =========================================
+   CAROUSEL ARROWS
+   ========================================= */
 
 .arrow {
   position: absolute;
@@ -244,11 +310,12 @@
     width: 32px;
     height: 32px;
     stroke-width: 2.2;
+
     transition: transform 200ms ease;
   }
 
   &:hover {
-    color: var(--color-primary);
+    color: var(--palette-orange);
   }
 
   &:focus-visible {
@@ -274,10 +341,14 @@
   }
 }
 
-// Tablet / iPad Pro
+/* =========================================
+   TABLET / IPAD PRO
+   1024px and below
+   ========================================= */
+
 @media (max-width: 1024px) {
   .container {
-    width: min(100% - 2rem, 900px);
+    width: min(100% - 3rem, 1480px);
     padding: 3rem 3.5rem;
   }
 
@@ -331,7 +402,11 @@
   }
 }
 
-// Smaller tablets
+/* =========================================
+   SMALL TABLET
+   768px and below
+   ========================================= */
+
 @media (max-width: 768px) {
   .container {
     padding: 2.75rem 2.5rem;
@@ -343,20 +418,6 @@
 
   .deviceImage {
     width: 105%;
-  }
-
-  .accentShape {
-    top: 9%;
-    left: 34%;
-    width: 59%;
-    height: 73%;
-  }
-
-  .accentShapeLeft {
-    left: 4%;
-    bottom: 14%;
-    width: 27%;
-    height: 22%;
   }
 
   .arrow {
@@ -378,10 +439,14 @@
   }
 }
 
-// Mobile
+/* =========================================
+   MOBILE
+   600px and below
+   ========================================= */
+
 @media (max-width: 600px) {
   .container {
-    width: min(100% - 1.5rem, 500px);
+    width: min(100% - 2rem, 1480px);
     padding: 2.5rem 1.5rem;
   }
 
@@ -422,6 +487,11 @@
     line-height: 1.6;
   }
 
+  .caseStudyButton {
+    min-height: 44px;
+    padding: 0.75rem 1.4rem;
+  }
+
   .arrow {
     top: 27%;
     width: 34px;
@@ -446,14 +516,24 @@
   }
 }
 
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
 @media (prefers-reduced-motion: reduce) {
   .accentShape,
   .accentShapeLeft,
-  .caseStudyButton,
+  .projectImage,
   .paginationItem,
   .paginationLine,
   .arrow,
   .arrow svg {
+    animation: none;
     transition: none;
+  }
+
+  .previous:hover svg,
+  .next:hover svg {
+    transform: none;
   }
 }

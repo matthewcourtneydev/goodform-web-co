@@ -1,0 +1,34 @@
+
+@use "./variables" as vars;
+@use "./keyframes";
+
+@mixin animate(
+  $name: fadeUp,
+  $duration: vars.$duration-normal,
+  $delay: 0ms
+) {
+  animation: $name $duration vars.$ease-out $delay both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@mixin stagger(
+  $name: fadeUp,
+  $duration: vars.$duration-normal,
+  $delay: 0ms,
+  $step: vars.$stagger-delay
+) {
+  @include animate($name, $duration, $delay);
+
+  @for $i from 1 through 8 {
+    &:nth-child(#{$i}) {
+      animation-delay: $delay + ($i - 1) * $step;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation-delay: 0ms;
+  }
+}

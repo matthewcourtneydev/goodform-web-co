@@ -1,6 +1,7 @@
 
 import { Palette, Code2, Layers3 } from "lucide-react";
 
+import Reveal from "@/components/animations/Reveal";
 import styles from "./AboutPillars.module.scss";
 
 const pillars = [
@@ -34,10 +35,17 @@ export default function AboutPillars() {
       aria-labelledby="about-pillars-title"
     >
       <div className={styles.container}>
+        {/* Section heading */}
         <div className={styles.heading}>
-          <h2 id="about-pillars-title">
-            What We Stand For
-          </h2>
+          <Reveal
+            animation="fadeUp"
+            duration={650}
+            className={styles.headingReveal}
+          >
+            <h2 id="about-pillars-title">
+              What We Stand For
+            </h2>
+          </Reveal>
 
           <span
             className={styles.headingLine}
@@ -45,28 +53,38 @@ export default function AboutPillars() {
           />
         </div>
 
+        {/* Pillars */}
         <div className={styles.pillarsGrid}>
-          {pillars.map((pillar) => {
+          {pillars.map((pillar, index) => {
             const Icon = pillar.icon;
 
             return (
-              <article
+              <div
                 key={pillar.id}
-                className={styles.pillar}
+                className={styles.pillarItem}
               >
-                <div className={styles.iconWrapper}>
-                  <Icon
-                    size={34}
-                    strokeWidth={1.75}
-                    aria-hidden="true"
-                  />
-                </div>
+                <Reveal
+                  animation="fadeUp"
+                  delay={index * 120}
+                  duration={700}
+                  className={styles.pillarReveal}
+                >
+                  <article className={styles.pillar}>
+                    <div className={styles.iconWrapper}>
+                      <Icon
+                        size={34}
+                        strokeWidth={1.75}
+                        aria-hidden="true"
+                      />
+                    </div>
 
-                <div className={styles.pillarContent}>
-                  <h3>{pillar.title}</h3>
-                  <p>{pillar.description}</p>
-                </div>
-              </article>
+                    <div className={styles.pillarContent}>
+                      <h3>{pillar.title}</h3>
+                      <p>{pillar.description}</p>
+                    </div>
+                  </article>
+                </Reveal>
+              </div>
             );
           })}
         </div>

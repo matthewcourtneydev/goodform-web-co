@@ -1,0 +1,125 @@
+
+/* =========================================
+   GOODFORM BUTTON SYSTEM
+   ========================================= */
+
+   $button-duration: 220ms;
+   $button-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
+   
+   @mixin button-base {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     gap: 0.5rem;
+   
+     min-height: 46px;
+     padding: 0.8rem 1.6rem;
+   
+     border: 1px solid transparent;
+     border-radius: 6px;
+   
+     font: inherit;
+     font-size: 0.875rem;
+     font-weight: 600;
+     line-height: 1.3;
+     text-align: center;
+     text-decoration: none;
+   
+     cursor: pointer;
+   
+     transition:
+       background-color $button-duration ease,
+       border-color $button-duration ease,
+       color $button-duration ease,
+       transform $button-duration $button-easing,
+       box-shadow $button-duration ease;
+   
+     &:hover {
+       transform: translateY(-2px);
+       box-shadow: 0 6px 16px rgba(15, 45, 36, 0.12);
+     }
+   
+     &:active {
+       transform: translateY(0);
+       box-shadow: none;
+     }
+   
+     &:focus-visible {
+       outline: 3px solid var(--palette-orange);
+       outline-offset: 4px;
+     }
+   
+     @media (prefers-reduced-motion: reduce) {
+       transition: none;
+   
+       &:hover,
+       &:active {
+         transform: none;
+       }
+     }
+   }
+   
+   /* =========================================
+      PRIMARY BUTTON
+      ========================================= */
+   
+   @mixin button-primary {
+     @include button-base;
+   
+     background-color: var(--palette-orange);
+     border-color: var(--palette-orange);
+     color: #ffffff;
+   
+     &:hover {
+       background-color: #ad5934;
+       border-color: #ad5934;
+     }
+   }
+   
+   /* =========================================
+      SECONDARY BUTTON
+      ========================================= */
+   
+   @mixin button-secondary {
+     @include button-base;
+   
+     background-color: transparent;
+     border-color: var(--palette-forest);
+     color: var(--palette-forest);
+   
+     &:hover {
+       background-color: var(--palette-forest);
+       color: #ffffff;
+     }
+   }
+   
+   /* =========================================
+      TEXT LINK
+      ========================================= */
+   
+   @mixin button-text {
+     display: inline-flex;
+     align-items: center;
+     gap: 0.5rem;
+   
+     color: var(--palette-forest);
+     font-size: 0.875rem;
+     font-weight: 600;
+     text-decoration: none;
+   
+     transition: color $button-duration ease;
+   
+     &:hover {
+       color: var(--palette-orange);
+     }
+   
+     &:focus-visible {
+       outline: 3px solid var(--palette-orange);
+       outline-offset: 4px;
+     }
+   
+     @media (prefers-reduced-motion: reduce) {
+       transition: none;
+     }
+   }
+   

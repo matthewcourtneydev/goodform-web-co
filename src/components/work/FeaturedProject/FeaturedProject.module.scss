@@ -1,230 +1,225 @@
 
+@use "../../../styles/mixins/buttons" as buttons;
+
+/* =========================================
+   FEATURED PROJECT
+   ========================================= */
+
 .section {
-    width: 100%;
-    background: var(--color-background);
-  }
-  
-  .container {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: center;
-    gap: 2.5rem;
-  
-    width: min(100% - 3rem, 1280px);
-    margin: 0 auto;
-    padding: 3rem 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-  
-  /* Project image */
-  
-  .projectImage {
-    position: relative;
-    width: 100%;
-    min-width: 0;
-    aspect-ratio: 1.6;
-    overflow: hidden;
-    border-radius: 10px;
-    background: var(--color-surface);
-  }
-  
-  .projectScreenshot {
-    object-fit: cover;
-    object-position: center top;
-  }
-  
-  /* Project content */
-  
-  .content {
-    min-width: 0;
-  }
-  
-  .eyebrow {
-    display: block;
-    margin-bottom: 0.65rem;
-    color: var(--color-text);
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-  
-  .content h2 {
-    margin: 0 0 0.85rem;
-    color: var(--color-text);
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 3vw, 3rem);
-    font-weight: 700;
-    letter-spacing: -0.045em;
-    line-height: 1.1;
-  }
-  
-  .description {
-    max-width: 480px;
-    margin: 0;
-    color: var(--color-text);
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-  
-  .highlights {
+  width: 100%;
+  background: var(--color-background);
+}
+
+/* =========================================
+   CONTAINER
+   ========================================= */
+
+.container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 2.5rem;
+
+  width: min(100% - 3rem, 1480px);
+  margin: 0 auto;
+  padding: 3rem 0;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* =========================================
+   REVEAL WRAPPERS
+   ========================================= */
+
+.imageReveal,
+.contentReveal {
+  width: 100%;
+  min-width: 0;
+}
+
+/* =========================================
+   PROJECT IMAGE
+   ========================================= */
+
+.projectImage {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1.6;
+
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--color-surface);
+}
+
+.projectScreenshot {
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* =========================================
+   PROJECT CONTENT
+   ========================================= */
+
+.content {
+  min-width: 0;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 0.65rem;
+
+  color: var(--color-text);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.content h2 {
+  margin: 0 0 0.85rem;
+
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+
+.description {
+  max-width: 480px;
+  margin: 0;
+
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* =========================================
+   HIGHLIGHTS
+   ========================================= */
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+
+  margin: 1.5rem 0 1.75rem;
+  padding: 0;
+  list-style: none;
+
+  li {
     display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-    margin: 1.5rem 0 1.75rem;
-    padding: 0;
-    list-style: none;
-  
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    color: var(--color-text);
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  svg {
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+}
+
+/* =========================================
+   CTA
+   ========================================= */
+
+.button {
+  @include buttons.button-primary;
+
+  display: inline-flex;
+  min-width: 180px;
+  min-height: 44px;
+  padding: 0.75rem 1.5rem;
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2.5rem 0;
+  }
+
+  .projectImage {
+    aspect-ratio: 1.8;
+  }
+
+  .content h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .description {
+    max-width: 600px;
+    font-size: 0.9rem;
+  }
+
+  .highlights {
+    gap: 0.7rem;
+    margin: 1.25rem 0 1.5rem;
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 2rem, 1480px);
+    gap: 1.25rem;
+    padding: 2rem 0;
+  }
+
+  .projectImage {
+    aspect-ratio: 1.65;
+    border-radius: 8px;
+  }
+
+  .eyebrow {
+    margin-bottom: 0.5rem;
+    font-size: 0.65rem;
+  }
+
+  .content h2 {
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.8rem, 7vw, 2.25rem);
+  }
+
+  .description {
+    font-size: 0.825rem;
+    line-height: 1.55;
+  }
+
+  .highlights {
+    gap: 0.65rem;
+    margin: 1.15rem 0 1.35rem;
+
     li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      color: var(--color-text);
-      font-size: 0.9rem;
-      line-height: 1.45;
+      gap: 0.6rem;
+      font-size: 0.8rem;
     }
-  
+
     svg {
-      flex-shrink: 0;
-      margin-top: 0.1rem;
+      width: 15px;
+      height: 15px;
     }
   }
-  
-  /* CTA */
-  
+
   .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  
-    min-width: 180px;
-    min-height: 44px;
-    padding: 0.75rem 1.5rem;
-  
-    border: 1px solid #c96f45;
-    border-radius: 6px;
-    background: #c96f45;
-    color: #ffffff;
-  
-    font-size: 0.875rem;
-    font-weight: 600;
-    line-height: 1.2;
-    text-decoration: none;
-  
-    transition:
-      transform 0.2s ease,
-      background-color 0.2s ease;
-  
-    &:hover {
-      transform: translateY(-2px);
-      background: #b85f37;
-    }
-  
-    &:focus-visible {
-      outline: 2px solid var(--color-primary);
-      outline-offset: 4px;
-    }
+    width: 100%;
+    min-width: 0;
+    min-height: 42px;
+    padding: 0.7rem 1.25rem;
+    font-size: 0.825rem;
   }
-  
-  /* Tablet */
-  
-  @media (max-width: 1024px) {
-    .container {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      padding: 2.5rem 0;
-    }
-  
-    .projectImage {
-      aspect-ratio: 1.8;
-    }
-  
-    .content h2 {
-      font-size: clamp(2rem, 4vw, 2.75rem);
-    }
-  
-    .description {
-      max-width: 600px;
-      font-size: 0.9rem;
-    }
-  
-    .highlights {
-      gap: 0.7rem;
-      margin: 1.25rem 0 1.5rem;
-    }
-  }
-  
-  /* Mobile */
-  
-  @media (max-width: 600px) {
-    .container {
-      width: min(100% - 2rem, 1280px);
-      gap: 1.25rem;
-      padding: 2rem 0;
-    }
-  
-    .projectImage {
-      aspect-ratio: 1.65;
-      padding: 1.25rem;
-      border-radius: 8px;
-    }
-  
-    .imagePlaceholder {
-      width: 85%;
-      height: 75%;
-  
-      svg {
-        width: 55px;
-        height: 55px;
-      }
-    }
-  
-    .eyebrow {
-      margin-bottom: 0.5rem;
-      font-size: 0.65rem;
-    }
-  
-    .content h2 {
-      margin-bottom: 0.75rem;
-      font-size: clamp(1.8rem, 7vw, 2.25rem);
-    }
-  
-    .description {
-      font-size: 0.825rem;
-      line-height: 1.55;
-    }
-  
-    .highlights {
-      gap: 0.65rem;
-      margin: 1.15rem 0 1.35rem;
-  
-      li {
-        gap: 0.6rem;
-        font-size: 0.8rem;
-      }
-  
-      svg {
-        width: 15px;
-        height: 15px;
-      }
-    }
-  
-    .button {
-      width: 100%;
-      min-width: 0;
-      min-height: 42px;
-      padding: 0.7rem 1.25rem;
-      font-size: 0.825rem;
-    }
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .button {
-      transition: none;
-  
-      &:hover {
-        transform: none;
-      }
-    }
-  }
-  
+}

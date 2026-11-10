@@ -9,7 +9,7 @@
   }
   
   .container {
-    width: min(100% - 3rem, 1280px);
+    width: min(100% - 3rem, 1480px);
     margin: 0 auto;
     padding: 3rem 0 2.5rem;
   }
@@ -21,7 +21,6 @@
   .eyebrow {
     display: block;
     margin-bottom: 0.5rem;
-  
     color: var(--palette-forest);
     font-size: 0.75rem;
     font-weight: 800;
@@ -40,17 +39,26 @@
     margin-bottom: 2rem;
   }
   
-  .storyBlock {
+  .storyItem {
     min-width: 0;
   
     &:first-child {
       padding-right: 2rem;
       border-right: 1px solid rgba(15, 45, 36, 0.2);
     }
+  }
+  
+  .storyReveal {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+  
+  .storyBlock {
+    min-width: 0;
   
     h2 {
       margin: 0 0 0.85rem;
-  
       color: var(--palette-forest);
       font-family: var(--font-heading);
       font-size: clamp(1.75rem, 2.5vw, 2.5rem);
@@ -62,7 +70,6 @@
     p {
       max-width: 550px;
       margin: 0 0 0.85rem;
-  
       color: var(--palette-forest);
       font-size: 0.925rem;
       line-height: 1.65;
@@ -88,25 +95,32 @@
   .benefits {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  
     padding: 1.5rem;
     border-radius: 22px;
-  
     background: var(--palette-cream);
   }
   
   .benefit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.65rem;
-  
+    min-width: 0;
     padding: 0.5rem 1.5rem;
-    text-align: center;
   
     &:not(:last-child) {
       border-right: 1px solid rgba(15, 45, 36, 0.16);
     }
+  }
+  
+  .benefitReveal {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+  
+  .benefitInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    text-align: center;
   
     svg {
       flex-shrink: 0;
@@ -117,7 +131,6 @@
   .benefitContent {
     h3 {
       margin: 0 0 0.4rem;
-  
       color: var(--palette-forest);
       font-family: var(--font-heading);
       font-size: 1.15rem;
@@ -129,7 +142,6 @@
     p {
       max-width: 240px;
       margin: 0;
-  
       color: var(--palette-forest);
       font-size: 0.825rem;
       line-height: 1.5;
@@ -151,12 +163,14 @@
       margin-bottom: 2rem;
     }
   
-    .storyBlock {
+    .storyItem {
       &:first-child {
         padding-right: 0;
         border-right: 0;
       }
+    }
   
+    .storyBlock {
       h2 {
         font-size: clamp(1.9rem, 4vw, 2.5rem);
       }
@@ -174,6 +188,9 @@
   
     .benefit {
       padding: 0.5rem 0.75rem;
+    }
+  
+    .benefitInner {
       gap: 0.5rem;
   
       svg {
@@ -199,7 +216,7 @@
   
   @media (max-width: 600px) {
     .container {
-      width: min(100% - 2rem, 1280px);
+      width: min(100% - 2rem, 1480px);
       padding: 2rem 0;
     }
   
@@ -223,9 +240,18 @@
       margin-bottom: 1.5rem;
     }
   
+    .mobileStoryItem {
+      min-width: 0;
+    }
+  
+    .accordionReveal {
+      display: block;
+      width: 100%;
+      min-width: 0;
+    }
+  
     .storyAccordion {
       overflow: hidden;
-  
       border: 1px solid rgba(15, 45, 36, 0.2);
       border-radius: 8px;
       background: var(--palette-cream);
@@ -279,7 +305,6 @@
   
       p {
         margin: 0.8rem 0 0;
-  
         color: var(--palette-forest);
         font-size: 0.8rem;
         line-height: 1.65;
@@ -294,26 +319,26 @@
       display: flex;
       flex-direction: column;
       gap: 0;
-  
       padding: 0;
       border: 0;
       border-radius: 0;
-  
       background: transparent;
     }
   
     .benefit {
-      flex-direction: row;
-      align-items: center;
-      gap: 0.85rem;
-  
       padding: 0.85rem 0.25rem;
-      text-align: left;
   
       &:not(:last-child) {
         border-right: 0;
         border-bottom: 1px solid rgba(15, 45, 36, 0.2);
       }
+    }
+  
+    .benefitInner {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.85rem;
+      text-align: left;
   
       svg {
         width: 23px;

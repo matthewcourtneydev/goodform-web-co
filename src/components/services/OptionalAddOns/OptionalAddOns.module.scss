@@ -1,235 +1,307 @@
 
-.section {
-  width: 100%;
-  background: var(--palette-forest);
-}
-
-.container {
-  width: min(100% - 3rem, 1280px);
-  margin: 0 auto;
-  padding: 4.5rem 0 2rem;
-}
-
-.intro {
-  margin-bottom: 2rem;
-
-  h2 {
-    margin: 0 0 0.5rem;
-    color: var(--palette-cream);
-    font-family: var(--font-heading);
-    font-size: clamp(1.75rem, 2.4vw, 2.3rem);
-    font-weight: 700;
-    letter-spacing: -0.045em;
-    line-height: 1.1;
-  }
-
-  p {
-    max-width: 600px;
-    margin: 0;
-    color: rgba(250, 246, 237, 0.8);
-    font-size: 0.9rem;
-    line-height: 1.65;
-  }
-}
-
-.addOns {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.addOn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  min-height: 160px;
-  padding: 1.5rem 0.75rem;
-  border: 1px solid rgba(250, 246, 237, 0.18);
-  border-radius: 8px;
-  background: var(--palette-cream);
-  text-align: center;
-}
-
-.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  margin-bottom: 0.85rem;
-  color: var(--palette-forest);
-
-  svg {
-    width: 27px;
-    height: 27px;
-  }
-}
-
-.details {
-  min-width: 0;
-
-  h3 {
-    margin: 0;
-    color: var(--palette-forest);
-    font-size: 0.85rem;
-    font-weight: 700;
-    line-height: 1.4;
-  }
-}
-
-.description {
-  display: none;
-}
-
-.mobileName {
-  display: none;
-}
-
-.price {
-  display: block;
-  margin-top: 0.5rem;
-  color: var(--palette-orange);
-  font-size: 0.9rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
 /* =========================================
-   TABLET
+   OPTIONAL ADD-ONS
    ========================================= */
 
-@media (max-width: 1024px) {
+   .section {
+    width: 100%;
+    background: var(--palette-forest);
+  }
+  
+  /* =========================================
+     CONTAINER
+     ========================================= */
+  
   .container {
-    padding: 3.5rem 0 1.5rem;
+    width: min(100% - 3rem, 1480px);
+    margin: 0 auto;
+    padding: 4.5rem 0 2rem;
   }
-
-  .addOns {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.75rem;
-  }
-
-  .addOn {
-    min-height: 145px;
-    padding: 1.25rem;
-  }
-}
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 600px) {
-  .container {
-    width: min(100% - 2rem, 1280px);
-    padding: 3rem 0 1.5rem;
-  }
-
+  
+  /* =========================================
+     INTRODUCTION
+     ========================================= */
+  
   .intro {
-    margin-bottom: 1.5rem;
-
+    margin-bottom: 2rem;
+  
     h2 {
-      font-size: 1.8rem;
+      margin: 0 0 0.5rem;
+  
+      color: var(--palette-cream);
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 2.4vw, 2.3rem);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1.1;
     }
-
+  
     p {
-      font-size: 0.825rem;
+      max-width: 600px;
+      margin: 0;
+  
+      color: rgba(250, 246, 237, 0.8);
+      font-size: 0.9rem;
+      line-height: 1.65;
     }
   }
-
+  
+  /* =========================================
+     ADD-ONS GRID
+     ========================================= */
+  
   .addOns {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 1rem;
   }
-
+  
+  /* Stationary wrapper for each add-on */
+  
+  .addOnItem {
+    min-width: 0;
+  }
+  
+  .addOnReveal {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+  }
+  
+  /* =========================================
+     ADD-ON CARD
+     ========================================= */
+  
   .addOn {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-
-    min-height: 0;
-    padding: 1.15rem 0;
-
-    border: 0;
-    border-bottom: 1px solid rgba(250, 246, 237, 0.22);
-    border-radius: 0;
-    background: transparent;
-    text-align: left;
-
-    &:first-child {
-      border-top: 1px solid rgba(250, 246, 237, 0.22);
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    min-width: 0;
+    min-height: 160px;
+    padding: 1.5rem 0.75rem;
+  
+    border: 1px solid rgba(250, 246, 237, 0.18);
+    border-radius: 8px;
+  
+    background: var(--palette-cream);
+    text-align: center;
+  }
+  
+  /* =========================================
+     ICONS
+     ========================================= */
+  
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  
+    width: 36px;
+    height: 36px;
+    margin-bottom: 0.85rem;
+  
+    color: var(--palette-forest);
+  
+    svg {
+      display: block;
+      width: 27px;
+      height: 27px;
     }
   }
-
-  .icon {
+  
+  /* =========================================
+     ADD-ON DETAILS
+     ========================================= */
+  
+  .details {
+    min-width: 0;
+  
+    h3 {
+      margin: 0;
+  
+      color: var(--palette-forest);
+      font-size: 0.85rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+  }
+  
+  .description {
     display: none;
   }
-
-  .details {
-    flex: 1;
-    min-width: 0;
-
-    h3 {
-      margin: 0 0 0.35rem;
-      color: var(--palette-cream);
-      font-size: 0.875rem;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-  }
-
-  .description {
-    display: block;
-    max-width: 260px;
-    margin: 0;
-    color: rgba(250, 246, 237, 0.75);
-    font-size: 0.775rem;
-    line-height: 1.55;
-  }
-
-  .desktopName {
-    display: inline;
-  }
-
+  
   .mobileName {
     display: none;
   }
-
+  
   .price {
-    flex-shrink: 0;
-    margin: 0;
-    padding-top: 0.05rem;
-    color: #E6A47D;
-    font-size: 0.875rem;
+    display: block;
+    margin-top: 0.5rem;
+  
+    color: var(--palette-orange);
+    font-size: 0.9rem;
     font-weight: 700;
-    line-height: 1.35;
-    text-align: right;
+    white-space: nowrap;
   }
-}
-
-/* =========================================
-   SMALL MOBILE
-   ========================================= */
-
-@media (max-width: 375px) {
-  .addOn {
-    gap: 0.75rem;
-    padding: 1rem 0;
+  
+  /* =========================================
+     TABLET
+     ========================================= */
+  
+  @media (max-width: 1024px) {
+    .container {
+      padding: 3.5rem 0 1.5rem;
+    }
+  
+    .addOns {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+  
+    .addOn {
+      min-height: 145px;
+      padding: 1.25rem;
+    }
   }
-
-  .details h3 {
-    font-size: 0.825rem;
+  
+  /* =========================================
+     MOBILE
+     ========================================= */
+  
+  @media (max-width: 600px) {
+    .container {
+      width: min(100% - 2rem, 1480px);
+      padding: 3rem 0 1.5rem;
+    }
+  
+    .intro {
+      margin-bottom: 1.5rem;
+  
+      h2 {
+        font-size: 1.8rem;
+      }
+  
+      p {
+        font-size: 0.825rem;
+      }
+    }
+  
+    .addOns {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+  
+    /*
+     * Keep row separators stationary
+     * while their contents reveal.
+     */
+  
+    .addOnItem {
+      border-bottom: 1px solid rgba(250, 246, 237, 0.22);
+  
+      &:first-child {
+        border-top: 1px solid rgba(250, 246, 237, 0.22);
+      }
+    }
+  
+    .addOnReveal {
+      display: block;
+      height: auto;
+    }
+  
+    .addOn {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+  
+      min-height: 0;
+      padding: 1.15rem 0;
+  
+      border: 0;
+      border-radius: 0;
+  
+      background: transparent;
+      text-align: left;
+    }
+  
+    .icon {
+      display: none;
+    }
+  
+    .details {
+      flex: 1;
+      min-width: 0;
+  
+      h3 {
+        margin: 0 0 0.35rem;
+  
+        color: var(--palette-cream);
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+    }
+  
+    .description {
+      display: block;
+      max-width: 260px;
+      margin: 0;
+  
+      color: rgba(250, 246, 237, 0.75);
+      font-size: 0.775rem;
+      line-height: 1.55;
+    }
+  
+    .desktopName {
+      display: inline;
+    }
+  
+    .mobileName {
+      display: none;
+    }
+  
+    .price {
+      flex-shrink: 0;
+      margin: 0;
+      padding-top: 0.05rem;
+  
+      color: #e6a47d;
+      font-size: 0.875rem;
+      font-weight: 700;
+      line-height: 1.35;
+      text-align: right;
+    }
   }
-
-  .description {
-    font-size: 0.75rem;
+  
+  /* =========================================
+     SMALL MOBILE
+     ========================================= */
+  
+  @media (max-width: 375px) {
+    .addOn {
+      gap: 0.75rem;
+      padding: 1rem 0;
+    }
+  
+    .details h3 {
+      font-size: 0.825rem;
+    }
+  
+    .description {
+      font-size: 0.75rem;
+    }
+  
+    .price {
+      font-size: 0.825rem;
+    }
   }
-
-  .price {
-    font-size: 0.825rem;
-  }
-}
+  

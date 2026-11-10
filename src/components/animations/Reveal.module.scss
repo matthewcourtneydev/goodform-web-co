@@ -1,0 +1,48 @@
+
+.reveal {
+    opacity: 1;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes revealFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+  
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    @keyframes revealFadeIn {
+      from {
+        opacity: 0;
+      }
+  
+      to {
+        opacity: 1;
+      }
+    }
+  
+    .reveal {
+      opacity: 0;
+    }
+  
+    .visible {
+      animation-duration: var(--reveal-duration);
+      animation-delay: var(--reveal-delay);
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+  
+    .fadeUp.visible {
+      animation-name: revealFadeUp;
+    }
+  
+    .fadeIn.visible {
+      animation-name: revealFadeIn;
+    }
+  }
+  

@@ -1,6 +1,7 @@
-import { Plus, Minus } from "lucide-react";
-import styles from "./ServicesFAQ.module.scss";
 
+import { Plus, Minus } from "lucide-react";
+import Reveal from "@/components/animations/Reveal";
+import styles from "./ServicesFAQ.module.scss";
 
 const faqs = [
   {
@@ -30,36 +31,65 @@ const faqs = [
   },
 ];
 
-
 export default function ServicesFAQ() {
   return (
-    <section className={styles.section} aria-labelledby="services-faq-title">
+    <section
+      className={styles.section}
+      aria-labelledby="services-faq-title"
+    >
       <div className={styles.container}>
-        <div className={styles.intro}>
-          <h2 id="services-faq-title">Frequently Asked Questions</h2>
-          <p>A few common questions about working with Goodform.</p>
-        </div>
+        <Reveal animation="fadeUp" duration={650}>
+          <div className={styles.intro}>
+            <h2 id="services-faq-title">
+              Frequently Asked Questions
+            </h2>
+
+            <p>
+              A few common questions about working with Goodform.
+            </p>
+          </div>
+        </Reveal>
 
         <div className={styles.faqList}>
-          {faqs.map((faq) => (
-            <details key={faq.question} className={styles.faq}>
-              <summary className={styles.question}>
-                <span>{faq.question}</span>
+          {faqs.map((faq, index) => (
+            <div
+              key={faq.question}
+              className={styles.faqItem}
+            >
+              <Reveal
+                animation="fadeUp"
+                delay={(index % 3) * 90}
+                duration={600}
+                className={styles.faqReveal}
+              >
+                <details className={styles.faq}>
+                  <summary className={styles.question}>
+                    <span>{faq.question}</span>
 
-                <span className={styles.indicator} aria-hidden="true">
-                  <Plus className={styles.plus} size={19} strokeWidth={1.75} />
-                  <Minus
-                    className={styles.minus}
-                    size={19}
-                    strokeWidth={1.75}
-                  />
-                </span>
-              </summary>
+                    <span
+                      className={styles.indicator}
+                      aria-hidden="true"
+                    >
+                      <Plus
+                        className={styles.plus}
+                        size={19}
+                        strokeWidth={1.75}
+                      />
 
-              <div className={styles.answer}>
-                <p>{faq.answer}</p>
-              </div>
-            </details>
+                      <Minus
+                        className={styles.minus}
+                        size={19}
+                        strokeWidth={1.75}
+                      />
+                    </span>
+                  </summary>
+
+                  <div className={styles.answer}>
+                    <p>{faq.answer}</p>
+                  </div>
+                </details>
+              </Reveal>
+            </div>
           ))}
         </div>
       </div>

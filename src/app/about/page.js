@@ -1,11 +1,38 @@
 
 import About from "@/views/About/About";
 
+
 export const metadata = {
-  title: "About Goodform | Goodform Web Co.",
+  title: "About Us | Meet Goodform Web Co.",
+
   description:
-    "Get to know Goodform Web Co., an independent web studio combining thoughtful design, professional development experience, and a personal approach to small business websites.",
+    "Meet Goodform Web Co., an independent web design and development studio founded by Matthew Courtney in Charlotte, NC. Discover our story, values, and approach to building custom websites for small businesses.",
+
+  alternates: {
+    canonical: "/about",
+  },
+
+  openGraph: {
+    title: "About Us | Meet Goodform Web Co.",
+    description:
+      "Get to know Goodform Web Co. Discover the story, values, and design-first approach behind our custom websites for small businesses.",
+    url: "/about",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | Meet Goodform Web Co.",
+    description:
+      "Meet the independent web development studio combining thoughtful design, reliable development, and a personal approach to helping small businesses grow.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
+
 
 export default function AboutPage() {
   return <About />;

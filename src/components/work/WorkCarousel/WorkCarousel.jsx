@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+import Reveal from "@/components/animations/Reveal";
 import { projects } from "@/data/projects";
 import styles from "./WorkCarousel.module.scss";
 
@@ -74,115 +75,126 @@ export default function WorkCarousel() {
       aria-labelledby="work-carousel-title"
     >
       <div className={styles.container}>
-        <div className={styles.heading}>
-          <h2 id="work-carousel-title">
-            Explore Our Work
-          </h2>
+        {/* Section heading */}
+        <Reveal animation="fadeUp" duration={650}>
+          <div className={styles.heading}>
+            <h2 id="work-carousel-title">
+              Explore Our Work
+            </h2>
 
-          <p>
-            A selection of other projects we've brought to life.
-          </p>
-        </div>
+            <p>
+              A selection of other projects we've brought to life.
+            </p>
+          </div>
+        </Reveal>
 
-        <div
-          className={styles.carousel}
-          aria-roledescription="carousel"
-          aria-label="Goodform portfolio projects"
+        {/* Carousel and pagination */}
+        <Reveal
+          animation="fadeUp"
+          delay={150}
+          duration={750}
+          className={styles.carouselReveal}
         >
-          <button
-            type="button"
-            className={`${styles.arrow} ${styles.previous}`}
-            onClick={previousSlide}
-            aria-label="Previous project"
-            disabled={totalPages <= 1}
+          <div
+            className={styles.carousel}
+            aria-roledescription="carousel"
+            aria-label="Goodform portfolio projects"
           >
-            <ChevronLeft size={30} strokeWidth={1.75} />
-          </button>
-
-          <div className={styles.viewport}>
-            <div
-              className={styles.track}
-              style={{
-                "--active-index": activeIndex,
-                "--visible-count": visibleCount,
-              }}
+            <button
+              type="button"
+              className={`${styles.arrow} ${styles.previous}`}
+              onClick={previousSlide}
+              aria-label="Previous project"
+              disabled={totalPages <= 1}
             >
-              {carouselProjects.map((project, index) => {
-                const isVisible =
-                  index >= activeIndex &&
-                  index < activeIndex + visibleCount;
+              <ChevronLeft size={30} strokeWidth={1.75} />
+            </button>
 
-                const imageSrc =
-                  projectImages[project.id] ||
-                  `/images/projects/${project.id}/desktop.webp`;
+            <div className={styles.viewport}>
+              <div
+                className={styles.track}
+                style={{
+                  "--active-index": activeIndex,
+                  "--visible-count": visibleCount,
+                }}
+              >
+                {carouselProjects.map((project, index) => {
+                  const isVisible =
+                    index >= activeIndex &&
+                    index < activeIndex + visibleCount;
 
-                return (
-                  <article
-                    key={project.id}
-                    className={styles.card}
-                    aria-hidden={!isVisible}
-                    inert={!isVisible}
-                  >
-                    <div className={styles.projectImage}>
-                      <Image
-                        src={imageSrc}
-                        alt={`${project.name} website screenshot`}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 33vw"
-                        className={styles.projectScreenshot}
-                      />
-                    </div>
+                  const imageSrc =
+                    projectImages[project.id] ||
+                    `/images/projects/${project.id}/desktop.webp`;
 
-                    <div className={styles.cardContent}>
-                      <div className={styles.cardText}>
-                        <h3>{project.name}</h3>
-                        <p>{project.description}</p>
+                  return (
+                    <article
+                      key={project.id}
+                      className={styles.card}
+                      aria-hidden={!isVisible}
+                      inert={!isVisible}
+                    >
+                      <div className={styles.projectImage}>
+                        <Image
+                          src={imageSrc}
+                          alt={`${project.name} website screenshot`}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 33vw"
+                          className={styles.projectScreenshot}
+                        />
                       </div>
 
-                      <Link
-                        href={`/work/${project.slug}`}
-                        className={styles.cardLink}
-                        aria-label={`View ${project.name} case study`}
-                      >
-                        View Project
-                      </Link>
-                    </div>
-                  </article>
-                );
-              })}
+                      <div className={styles.cardContent}>
+                        <div className={styles.cardText}>
+                          <h3>{project.name}</h3>
+                          <p>{project.description}</p>
+                        </div>
+
+                        <Link
+                          href={`/work/${project.slug}`}
+                          className={styles.cardLink}
+                          aria-label={`View ${project.name} case study`}
+                        >
+                          View Project
+                        </Link>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
             </div>
+
+            <button
+              type="button"
+              className={`${styles.arrow} ${styles.next}`}
+              onClick={nextSlide}
+              aria-label="Next project"
+              disabled={totalPages <= 1}
+            >
+              <ChevronRight size={30} strokeWidth={1.75} />
+            </button>
           </div>
 
-          <button
-            type="button"
-            className={`${styles.arrow} ${styles.next}`}
-            onClick={nextSlide}
-            aria-label="Next project"
-            disabled={totalPages <= 1}
+          <div
+            className={styles.pagination}
+            aria-label="Project carousel pagination"
           >
-            <ChevronRight size={30} strokeWidth={1.75} />
-          </button>
-        </div>
-
-        <div
-          className={styles.pagination}
-          aria-label="Project carousel pagination"
-        >
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index}
-              type="button"
-              className={`${styles.dot} ${
-                index === activeIndex ? styles.activeDot : ""
-              }`}
-              onClick={() => goToSlide(index)}
-              aria-label={`Go to carousel position ${index + 1}`}
-              aria-current={
-                index === activeIndex ? "true" : undefined
-              }
-            />
-          ))}
-        </div>
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                type="button"
+                className={`${styles.dot} ${
+                  index === activeIndex ? styles.activeDot : ""
+                }`}
+                onClick={() => goToSlide(index)}
+                aria-label={`Go to carousel position ${index + 1}`}
+                aria-current={
+                  index === activeIndex ? "true" : undefined
+                }
+              />
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

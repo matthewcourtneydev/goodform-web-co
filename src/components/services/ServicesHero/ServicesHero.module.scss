@@ -1,308 +1,393 @@
 
+@use "../../../styles/mixins/buttons" as buttons;
+@use "../../../styles/animations/mixins" as motion;
+
 /* =========================================
    SERVICES HERO
    ========================================= */
 
-   .section {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    background-color: #f7f4eb;
-    background-image: url("/images/illustrations/services-hero.webp");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    border-bottom: 1px solid var(--color-border);
+.section {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 630px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #f7f4eb;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* =========================================
+   CONTAINER
+   ========================================= */
+
+.container {
+  position: relative;
+  width: min(100% - 3rem, 1480px);
+  min-height: 630px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 3rem);
+
+  padding: 5rem 0;
+}
+
+/* =========================================
+   CONTENT
+   ========================================= */
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-width: 0;
+  max-width: 700px;
+}
+
+/* =========================================
+   EYEBROW
+   ========================================= */
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: var(--color-text);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1.5;
+  text-transform: uppercase;
+
+  @include motion.animate(fadeUp, 550ms, 50ms);
+}
+
+/* =========================================
+   HEADLINE
+   ========================================= */
+
+.title {
+  max-width: 650px;
+  margin: 0;
+  color: var(--palette-forest);
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 4.8vw, 5.25rem);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 1.02;
+
+  @include motion.animate(fadeUp, 650ms, 160ms);
+}
+
+.titlePrimary,
+.titleSecondary {
+  display: block;
+}
+
+.titlePrimary {
+  color: var(--palette-forest);
+}
+
+.titleSecondary {
+  color: #74866b;
+}
+
+/* =========================================
+   DESCRIPTION
+   ========================================= */
+
+.description {
+  max-width: 480px;
+  margin: 1.75rem 0 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.65;
+
+  @include motion.animate(fadeUp, 650ms, 280ms);
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  @include motion.animate(fadeUp, 600ms, 400ms);
+}
+
+.primaryCTA {
+  @include buttons.button-primary;
+}
+
+.secondaryCTA {
+  @include buttons.button-secondary;
+}
+
+/* =========================================
+   HERO ILLUSTRATION
+   ========================================= */
+
+.visual {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  max-width: 720px;
+  margin-left: auto;
+
+  @include motion.animate(slideInRight, 850ms, 200ms);
+}
+
+.illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* =========================================
+   LARGE DESKTOP
+   1600px+
+   ========================================= */
+
+@media (min-width: 1600px) {
+  .section {
+    min-height: 700px;
   }
-  
+
   .container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: min(100% - 3rem, 1280px);
-    min-height: clamp(550px, 45vw, 720px);
-    height: 90svh;
-    margin: 0 auto;
+    min-height: 700px;
   }
-  
-  /* =========================================
-     CONTENT
-     ========================================= */
-  
+
+  .title {
+    font-size: clamp(4rem, 4.3vw, 5rem);
+  }
+
+  .visual {
+    max-width: 720px;
+  }
+}
+
+/* =========================================
+   SMALL DESKTOP / IPAD PRO
+   901px - 1200px
+   ========================================= */
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .section {
+    min-height: 600px;
+  }
+
+  .container {
+    min-height: 600px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2rem;
+    padding: 4rem 0;
+  }
+
   .content {
-    position: relative;
-    z-index: 2;
-    width: 50%;
-    max-width: 620px;
-    padding: 5rem 0;
+    max-width: 460px;
   }
-  
-  .eyebrow {
-    margin: 0 0 1rem;
-    color: var(--color-text);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
+
+  .title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
   }
-  
-  .content h1 {
-    margin: 0;
-    color: var(--color-text);
-    font-family: var(--font-heading);
-    font-size: clamp(2.8rem, 4.2vw, 4.5rem);
-    font-weight: 700;
-    letter-spacing: -0.055em;
-    line-height: 1.05;
-  }
-  
+
   .description {
-    max-width: 440px;
-    margin: 1.5rem 0 0;
-    color: var(--color-text);
-    font-size: 1rem;
-    line-height: 1.7;
+    max-width: 360px;
+    font-size: 0.925rem;
   }
-  
-  /* =========================================
-     BUTTONS
-     ========================================= */
-  
+
   .actions {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 2rem;
+    gap: 0.75rem;
   }
-  
+
   .primaryCTA,
   .secondaryCTA {
-    display: inline-flex;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.825rem;
+  }
+
+  .visual {
+    max-width: 500px;
+  }
+}
+
+/* =========================================
+   TABLET / IPAD MINI
+   601px - 900px
+   ========================================= */
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .section {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    min-width: 145px;
-    min-height: 46px;
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
+    min-height: 520px;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: 1.25rem;
+
+    width: min(100% - 3rem, 1380px);
+    min-height: 520px;
+    padding: 3.5rem 0;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .eyebrow {
+    margin-bottom: 0.85rem;
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+  }
+
+  .title {
+    font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+    line-height: 1.05;
+  }
+
+  .description {
+    max-width: 340px;
+    margin-top: 1.25rem;
     font-size: 0.875rem;
-    font-weight: 600;
-    text-decoration: none;
-  
-    transition:
-      opacity 0.2s ease,
-      transform 0.2s ease;
-  
-    &:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
-    }
-  
-    &:focus-visible {
-      outline: 2px solid var(--color-primary);
-      outline-offset: 4px;
-    }
+    line-height: 1.6;
   }
-  
-  .primaryCTA {
-    background: var(--color-accent);
-    color: #fff;
+
+  .actions {
+    gap: 0.65rem;
+    margin-top: 1.5rem;
   }
-  
+
+  .primaryCTA,
   .secondaryCTA {
-    border: 1px solid var(--color-text);
-    background: transparent;
-    color: var(--color-text);
+    min-height: 44px;
+    padding: 0.7rem 1rem;
+    font-size: 0.8rem;
   }
-  
-  /* =========================================
-     SMALL DESKTOP / LARGE TABLET
-     901px - 1200px
-     ========================================= */
-  
-  @media (max-width: 1200px) {
-    .section {
-      background-position: right bottom;
-      background-size: auto 90%;
-    }
-  
-    .container {
-      height: auto;
-      min-height: 550px;
-    }
-  
-    .content {
-      width: 46%;
-      max-width: 480px;
-      padding: 4rem 0;
-    }
-  
-    .content h1 {
-      font-size: clamp(2.5rem, 4.2vw, 3.5rem);
-    }
-  
-    .description {
-      max-width: 390px;
-    }
-  
-    .actions {
-      gap: 0.75rem;
-    }
+
+  .visual {
+    width: 100%;
+    max-width: 420px;
+    margin-left: auto;
   }
-  
-  /* =========================================
-     TABLET
-     601px - 900px
-     ========================================= */
-  
-  @media (max-width: 900px) {
-    .section {
-      // The illustration now occupies its own
-      // reserved area below the content.
-      background-image: none;
-  
-      &::after {
-        content: "";
-        position: absolute;
-        z-index: 1;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 400px;
-  
-        background-image: url("/images/illustrations/services-hero.webp");
-        background-repeat: no-repeat;
-        background-position: right bottom;
-        background-size: auto 100%;
-  
-        pointer-events: none;
-      }
-    }
-  
-    .container {
-      display: block;
-      width: min(100% - 3rem, 1280px);
-      height: auto;
-      min-height: 0;
-      padding-bottom: 420px;
-    }
-  
-    .content {
-      width: 100%;
-      max-width: 580px;
-      padding: 4rem 0 0;
-    }
-  
-    .content h1 {
-      max-width: 570px;
-      font-size: clamp(2.75rem, 5.5vw, 3.5rem);
-    }
-  
-    .description {
-      max-width: 480px;
-      font-size: 0.95rem;
-    }
-  
-    .actions {
-      margin-top: 1.75rem;
-    }
+}
+
+/* =========================================
+   MOBILE
+   600px and below
+   ========================================= */
+
+@media (max-width: 600px) {
+  .section {
+    display: block;
+    min-height: 0;
   }
-  
-  /* =========================================
-     MOBILE
-     600px and below
-     ========================================= */
-  
-  @media (max-width: 600px) {
-    .section {
-      &::after {
-        height: clamp(260px, 75vw, 340px);
-        background-position: right bottom;
-        background-size: auto 100%;
-      }
-    }
-  
-    .container {
-      width: min(100% - 2rem, 1280px);
-      min-height: 0;
-      padding-bottom: clamp(280px, 80vw, 360px);
-    }
-  
-    .content {
-      width: 100%;
-      max-width: 100%;
-      padding: 3rem 0 0;
-    }
-  
-    .eyebrow {
-      margin-bottom: 0.75rem;
-      font-size: 0.65rem;
-    }
-  
-    .content h1 {
-      max-width: 380px;
-      font-size: clamp(2.25rem, 9vw, 3rem);
-      line-height: 1.08;
-    }
-  
-    .description {
-      max-width: 380px;
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      line-height: 1.65;
-    }
-  
-    .actions {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-    }
-  
-    .primaryCTA,
-    .secondaryCTA {
-      width: 100%;
-      min-height: 44px;
-    }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+
+    width: min(100% - 2rem, 1280px);
+    min-height: 0;
+    padding: 2.5rem 0 0;
   }
-  
-  /* =========================================
-     SMALL MOBILE
-     375px and below
-     ========================================= */
-  
-  @media (max-width: 375px) {
-    .section {
-      &::after {
-        height: 250px;
-      }
-    }
-  
-    .container {
-      padding-bottom: 265px;
-    }
-  
-    .content h1 {
-      font-size: clamp(2rem, 9vw, 2.5rem);
-    }
-  
-    .description {
-      font-size: 0.85rem;
-    }
+
+  .content {
+    width: 100%;
+    max-width: 100%;
   }
-  
-  /* =========================================
-     REDUCED MOTION
-     ========================================= */
-  
-  @media (prefers-reduced-motion: reduce) {
-    .primaryCTA,
-    .secondaryCTA {
-      transition: none;
-  
-      &:hover {
-        transform: none;
-      }
-    }
+
+  .eyebrow {
+    max-width: 250px;
+    margin-bottom: 0.85rem;
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
   }
-  
+
+  .title {
+    max-width: 100%;
+    font-size: clamp(2.15rem, 8.5vw, 3rem);
+    letter-spacing: -0.05em;
+    line-height: 1.06;
+  }
+
+  .description {
+    max-width: 100%;
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .primaryCTA,
+  .secondaryCTA {
+    width: 100%;
+    min-height: 46px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .visual {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   390px and below
+   ========================================= */
+
+@media (max-width: 390px) {
+  .container {
+    padding-top: 2.25rem;
+  }
+
+  .title {
+    font-size: clamp(2rem, 8.3vw, 2.4rem);
+  }
+
+  .description {
+    font-size: 0.875rem;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryCTA,
+  .secondaryCTA {
+    transition: none;
+  }
+}

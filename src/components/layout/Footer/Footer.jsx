@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -37,8 +36,8 @@ export default function Footer() {
             </p>
 
             <p className={styles.description}>
-              Independent web design and development for
-              businesses that care about what they do.
+              Independent web design and development for businesses that care
+              about what they do.
             </p>
           </div>
 
@@ -65,7 +64,7 @@ export default function Footer() {
           <div className={styles.column}>
             <h2>Get in Touch</h2>
             <p>Have a project in mind?</p>
-            <Link href="/contact" className={styles.contactLink}>
+            <Link href="/contact" className={styles.contactButton}>
               Start a Conversation
             </Link>
           </div>
@@ -73,8 +72,7 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <p>
-            © {new Date().getFullYear()} Goodform Web Co.
-            All rights reserved.
+            © {new Date().getFullYear()} Goodform Web Co. All rights reserved.
           </p>
 
           <div className={styles.legal}>

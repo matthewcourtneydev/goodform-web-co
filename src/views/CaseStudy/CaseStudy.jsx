@@ -1,12 +1,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
+
 import {
   ArrowLeft,
   ArrowRight,
   ExternalLink,
   ImageIcon,
 } from "lucide-react";
+
+import Reveal from "@/components/animations/Reveal";
 
 import { projects } from "@/data/projects";
 import { caseStudies } from "@/data/caseStudies";
@@ -28,218 +31,273 @@ export default function CaseStudy({ project }) {
 
   return (
     <div className={styles.caseStudy}>
-      {/* Hero */}
+      {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.container}>
-          <Link href="/work" className={styles.backLink}>
-            <ArrowLeft size={16} aria-hidden="true" />
-            Back to Our Work
-          </Link>
+          <Reveal animation="fadeUp" duration={600}>
+            <Link href="/work" className={styles.backLink}>
+              <ArrowLeft size={16} aria-hidden="true" />
+              Back to Our Work
+            </Link>
+          </Reveal>
 
-          <span className={styles.eyebrow}>
-            Project Spotlight
-          </span>
+          <Reveal
+            animation="fadeUp"
+            delay={100}
+            duration={700}
+          >
+            <div className={styles.heroContent}>
+              <span className={styles.eyebrow}>
+                Project Spotlight
+              </span>
 
-          <h1>{project.name}</h1>
+              <h1>{project.name}</h1>
 
-          <p className={styles.introduction}>
-            {details.overview || project.description}
-          </p>
-
-          <div className={styles.projectMeta}>
-            <div>
-              <span>Client</span>
-              <strong>{project.name}</strong>
+              <p className={styles.introduction}>
+                {details.overview || project.description}
+              </p>
             </div>
+          </Reveal>
 
-            <div>
-              <span>Category</span>
-              <strong>{project.category}</strong>
-            </div>
+          <Reveal
+            animation="fadeUp"
+            delay={200}
+            duration={700}
+          >
+            <div className={styles.projectMeta}>
+              <div>
+                <span>Client</span>
+                <strong>{project.name}</strong>
+              </div>
 
-            <div>
-              <span>Services</span>
-              <strong>
-                {details.services?.slice(0, 2).join(", ") ||
-                  "Website Design & Development"}
-              </strong>
+              <div>
+                <span>Category</span>
+                <strong>{project.category}</strong>
+              </div>
+
+              <div>
+                <span>Services</span>
+                <strong>
+                  {details.services?.slice(0, 2).join(", ") ||
+                    "Website Design & Development"}
+                </strong>
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Main project visual */}
+      {/* MAIN PROJECT VISUAL */}
       <section className={styles.visualSection}>
         <div className={styles.container}>
-          <div className={styles.heroImage}>
-            {mainImage ? (
-              <Image
-                src={mainImage}
-                alt={`${project.name} website showcase`}
-                fill
-                priority
-                sizes="(max-width: 600px) 100vw, 80vw"
-                className={styles.projectImage}
-              />
-            ) : (
-              <div
-                className={styles.imagePlaceholder}
-                role="img"
-                aria-label={
-                  project.imageAlt ||
-                  `${project.name} project image coming soon`
-                }
-              >
-                <ImageIcon
-                  size={90}
-                  strokeWidth={1}
-                  aria-hidden="true"
+          <Reveal animation="fadeUp" duration={750}>
+            <div className={styles.heroImage}>
+              {mainImage ? (
+                <Image
+                  src={mainImage}
+                  alt={`${project.name} website showcase`}
+                  fill
+                  priority
+                  sizes="(max-width: 600px) 100vw, 80vw"
+                  className={styles.projectImage}
                 />
-              </div>
-            )}
-          </div>
+              ) : (
+                <div
+                  className={styles.imagePlaceholder}
+                  role="img"
+                  aria-label={
+                    project.imageAlt ||
+                    `${project.name} project image coming soon`
+                  }
+                >
+                  <ImageIcon
+                    size={90}
+                    strokeWidth={1}
+                    aria-hidden="true"
+                  />
+                </div>
+              )}
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Project story */}
+      {/* PROJECT STORY */}
       <section className={styles.storySection}>
         <div className={styles.container}>
           <div className={styles.storyGrid}>
-            <div className={styles.storyBlock}>
-              <span className={styles.eyebrow}>
-                The Challenge
-              </span>
+            <Reveal
+              animation="fadeUp"
+              duration={700}
+              className={styles.storyReveal}
+            >
+              <div className={styles.storyBlock}>
+                <span className={styles.eyebrow}>
+                  The Challenge
+                </span>
 
-              <h2>Understanding the need.</h2>
+                <h2>Understanding the need.</h2>
 
-              <p>
-                {details.challenge ||
-                  "Every project begins with understanding the business and its goals."}
-              </p>
-            </div>
+                <p>
+                  {details.challenge ||
+                    "Every project begins with understanding the business and its goals."}
+                </p>
+              </div>
+            </Reveal>
 
-            <div className={styles.storyBlock}>
-              <span className={styles.eyebrow}>
-                Our Approach
-              </span>
+            <Reveal
+              animation="fadeUp"
+              delay={150}
+              duration={700}
+              className={styles.storyReveal}
+            >
+              <div className={styles.storyBlock}>
+                <span className={styles.eyebrow}>
+                  Our Approach
+                </span>
 
-              <h2>Building with purpose.</h2>
+                <h2>Building with purpose.</h2>
 
-              <p>
-                {details.solution ||
-                  "We create thoughtful digital experiences built around the people who use them."}
-              </p>
-            </div>
+                <p>
+                  {details.solution ||
+                    "We create thoughtful digital experiences built around the people who use them."}
+                </p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Project gallery */}
+      {/* PROJECT GALLERY */}
       <section className={styles.gallerySection}>
         <div className={styles.container}>
-          <div className={styles.sectionHeading}>
-            <span className={styles.eyebrow}>
-              Project Gallery
-            </span>
+          <Reveal animation="fadeUp" duration={650}>
+            <div className={styles.sectionHeading}>
+              <span className={styles.eyebrow}>
+                Project Gallery
+              </span>
 
-            <h2>A closer look.</h2>
-          </div>
+              <h2>A closer look.</h2>
+            </div>
+          </Reveal>
 
           <div className={styles.galleryGrid}>
             {galleryImages.length > 0
-              ? galleryImages.map((image) => (
-                  <div
+              ? galleryImages.map((image, index) => (
+                  <Reveal
                     key={image.src}
-                    className={styles.galleryImage}
+                    animation="fadeUp"
+                    delay={(index % 3) * 100}
+                    duration={700}
+                    className={styles.galleryReveal}
                   >
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      sizes="(max-width: 600px) 100vw, (max-width: 1024px) 33vw, 30vw"
-                      className={styles.projectImage}
-                    />
-                  </div>
-                ))
-              : [1, 2, 3].map((item) => (
-                  <div
-                    key={item}
-                    className={styles.galleryImage}
-                  >
-                    <div
-                      className={styles.imagePlaceholder}
-                      aria-hidden="true"
-                    >
-                      <ImageIcon
-                        size={42}
-                        strokeWidth={1}
+                    <div className={styles.galleryImage}>
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        sizes="(max-width: 600px) 100vw, (max-width: 1024px) 33vw, 30vw"
+                        className={styles.projectImage}
                       />
                     </div>
-                  </div>
+                  </Reveal>
+                ))
+              : [1, 2, 3].map((item, index) => (
+                  <Reveal
+                    key={item}
+                    animation="fadeUp"
+                    delay={index * 100}
+                    duration={700}
+                    className={styles.galleryReveal}
+                  >
+                    <div className={styles.galleryImage}>
+                      <div
+                        className={styles.imagePlaceholder}
+                        aria-hidden="true"
+                      >
+                        <ImageIcon
+                          size={42}
+                          strokeWidth={1}
+                        />
+                      </div>
+                    </div>
+                  </Reveal>
                 ))}
           </div>
 
           {details.website && (
-            <a
-              href={details.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.websiteLink}
+            <Reveal
+              animation="fadeUp"
+              duration={650}
+              className={styles.websiteReveal}
             >
-              Visit Live Website
-              <ExternalLink
-                size={16}
-                aria-hidden="true"
-              />
-            </a>
+              <a
+                href={details.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.websiteLink}
+              >
+                Visit Live Website
+                <ExternalLink
+                  size={16}
+                  aria-hidden="true"
+                />
+              </a>
+            </Reveal>
           )}
         </div>
       </section>
 
-      {/* Next project */}
+      {/* NEXT PROJECT */}
       <section className={styles.nextSection}>
         <div className={styles.container}>
-          <div className={styles.nextContent}>
-            <div>
-              <span className={styles.eyebrow}>
-                Up Next
-              </span>
+          <Reveal animation="fadeUp" duration={700}>
+            <div className={styles.nextContent}>
+              <div>
+                <span className={styles.eyebrow}>
+                  Up Next
+                </span>
 
-              <h2>{nextProject.name}</h2>
+                <h2>{nextProject.name}</h2>
 
-              <p>{nextProject.description}</p>
+                <p>{nextProject.description}</p>
+              </div>
+
+              <Link
+                href={`/work/${nextProject.slug}`}
+                className={styles.nextButton}
+              >
+                Next Project
+                <ArrowRight
+                  size={17}
+                  aria-hidden="true"
+                />
+              </Link>
             </div>
-
-            <Link
-              href={`/work/${nextProject.slug}`}
-              className={styles.nextButton}
-            >
-              Next Project
-              <ArrowRight
-                size={17}
-                aria-hidden="true"
-              />
-            </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* FINAL CTA */}
       <section className={styles.ctaSection}>
         <div className={styles.container}>
-          <h2>Have something in mind?</h2>
+          <Reveal animation="fadeUp" duration={700}>
+            <div className={styles.ctaContent}>
+              <h2>Have something in mind?</h2>
 
-          <p>
-            Let's create something that feels right for
-            your business.
-          </p>
+              <p>
+                Let's create something that feels right for
+                your business.
+              </p>
 
-          <Link
-            href="/contact"
-            className={styles.ctaButton}
-          >
-            Start a Project
-          </Link>
+              <Link
+                href="/contact"
+                className={styles.ctaButton}
+              >
+                Start a Project
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
     </div>

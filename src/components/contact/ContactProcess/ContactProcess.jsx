@@ -1,6 +1,7 @@
 
 import { ArrowRight } from "lucide-react";
 
+import Reveal from "@/components/animations/Reveal";
 import styles from "./ContactProcess.module.scss";
 
 const steps = [
@@ -31,32 +32,50 @@ export default function ContactProcess() {
       aria-labelledby="contact-process-title"
     >
       <div className={styles.container}>
-        <div className={styles.heading}>
-          <span className={styles.eyebrow}>
-            The Process
-          </span>
+        {/* Section heading */}
+        <Reveal
+          animation="fadeUp"
+          duration={650}
+          className={styles.headingReveal}
+        >
+          <div className={styles.heading}>
+            <span className={styles.eyebrow}>
+              The Process
+            </span>
 
-          <h2 id="contact-process-title">
-            What Happens Next?
-          </h2>
-        </div>
+            <h2 id="contact-process-title">
+              What Happens Next?
+            </h2>
+          </div>
+        </Reveal>
 
+        {/* Process steps */}
         <ol className={styles.steps}>
           {steps.map((step, index) => (
-            <li key={step.number} className={styles.step}>
-              <div className={styles.stepCard}>
-                <span
-                  className={styles.number}
-                  aria-hidden="true"
-                >
-                  {step.number}
-                </span>
+            <li
+              key={step.number}
+              className={styles.step}
+            >
+              <Reveal
+                animation="fadeUp"
+                delay={index * 120}
+                duration={700}
+                className={styles.stepReveal}
+              >
+                <div className={styles.stepCard}>
+                  <span
+                    className={styles.number}
+                    aria-hidden="true"
+                  >
+                    {step.number}
+                  </span>
 
-                <div className={styles.stepContent}>
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
+                  <div className={styles.stepContent}>
+                    <h3>{step.title}</h3>
+                    <p>{step.description}</p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
 
               {index < steps.length - 1 && (
                 <ArrowRight

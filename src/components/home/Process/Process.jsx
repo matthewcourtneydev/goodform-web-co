@@ -1,4 +1,5 @@
 
+import Reveal from "@/components/animations/Reveal";
 import { processSteps } from "@/data/process";
 import styles from "./Process.module.scss";
 
@@ -9,33 +10,39 @@ export default function Process() {
       aria-labelledby="process-title"
     >
       <div className={styles.container}>
-        <div className={styles.intro}>
-          <p className={styles.eyebrow}>How We Work</p>
+        <Reveal animation="fadeUp" duration={650}>
+          <div className={styles.intro}>
+            <p className={styles.eyebrow}>How We Work</p>
 
-          <h2 id="process-title">Our Process</h2>
+            <h2 id="process-title">Our Process</h2>
 
-          <p className={styles.description}>
-            A clear, collaborative approach from the first
-            conversation to launch day. Every step is designed
-            to keep you informed, involved, and confident in
-            what we're building together.
-          </p>
-        </div>
+            <p className={styles.description}>
+              A clear, collaborative approach from the first
+              conversation to launch day. Every step is designed
+              to keep you informed, involved, and confident in
+              what we're building together.
+            </p>
+          </div>
+        </Reveal>
 
         <ol className={styles.timeline}>
-          {processSteps.map((step) => (
+          {processSteps.map((step, index) => (
             <li key={step.number} className={styles.step}>
-              <div
-                className={styles.marker}
-                aria-hidden="true"
+              <Reveal
+                animation="fadeUp"
+                delay={index * 110}
+                duration={650}
+                className={styles.stepReveal}
               >
-                {step.number}
-              </div>
+                <div className={styles.marker} aria-hidden="true">
+                  {step.number}
+                </div>
 
-              <div className={styles.stepContent}>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </div>
+                <div className={styles.stepContent}>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
+              </Reveal>
             </li>
           ))}
         </ol>

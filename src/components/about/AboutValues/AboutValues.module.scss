@@ -9,7 +9,7 @@
   }
   
   .container {
-    width: min(100% - 3rem, 1280px);
+    width: min(100% - 3rem, 1480px);
     margin: 0 auto;
     padding: 3.5rem 0;
   }
@@ -52,12 +52,25 @@
     gap: 1rem;
   }
   
+  .valueItem {
+    display: flex;
+    min-width: 0;
+  }
+  
+  .valueReveal {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+  }
+  
   .valueCard {
     display: flex;
     flex-direction: column;
+    flex: 1;
     min-width: 0;
-    padding: 1.5rem;
   
+    padding: 1.5rem;
     border: 1px solid rgba(15, 45, 36, 0.15);
     border-radius: 10px;
     background: var(--palette-sage);
@@ -104,6 +117,10 @@
     letter-spacing: 0.05em;
   }
   
+  /* =========================================
+     MOBILE ACCORDION CONTAINER
+     ========================================= */
+  
   .mobileValues {
     display: none;
   }
@@ -141,7 +158,7 @@
   
   @media (max-width: 600px) {
     .container {
-      width: min(100% - 2rem, 1280px);
+      width: min(100% - 2rem, 1480px);
       padding: 2.5rem 0;
     }
   
@@ -157,6 +174,8 @@
       font-size: 0.65rem;
     }
   
+    /* Hide desktop cards */
+  
     .valuesGrid {
       display: none;
     }
@@ -167,15 +186,26 @@
       display: flex;
       flex-direction: column;
       gap: 0;
+      border-top: 1px solid rgba(167, 181, 159, 0.4);
+    }
+  
+    /*
+     * Borders stay on stationary wrappers.
+     * The accordion content reveals inside.
+     */
+  
+    .mobileValueItem {
+      min-width: 0;
+      border-bottom: 1px solid rgba(167, 181, 159, 0.4);
+    }
+  
+    .mobileValueReveal {
+      display: block;
+      width: 100%;
+      min-width: 0;
     }
   
     .mobileValue {
-      border-bottom: 1px solid rgba(167, 181, 159, 0.4);
-  
-      &:first-child {
-        border-top: 1px solid rgba(167, 181, 159, 0.4);
-      }
-  
       summary {
         display: flex;
         align-items: center;

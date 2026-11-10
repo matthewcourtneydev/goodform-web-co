@@ -1,4 +1,5 @@
 
+import Reveal from "@/components/animations/Reveal";
 import styles from "./WhatWeProvide.module.scss";
 
 const services = [
@@ -82,25 +83,43 @@ export default function WhatWeProvide() {
       aria-labelledby="what-we-provide-title"
     >
       <div className={styles.container}>
-        <div className={styles.intro}>
-          <h2 id="what-we-provide-title">What We Provide</h2>
-          <p>
-            A complete website solution tailored to your business,
-            with the flexibility to add what you need along the way.
-          </p>
-        </div>
+        <Reveal animation="fadeUp" duration={650}>
+          <div className={styles.intro}>
+            <h2 id="what-we-provide-title">
+              What We Provide
+            </h2>
+
+            <p>
+              A complete website solution tailored to your
+              business, with the flexibility to add what you
+              need along the way.
+            </p>
+          </div>
+        </Reveal>
 
         <div className={styles.services}>
-          {services.map((service) => (
-            <div key={service.title} className={styles.service}>
-              <div className={styles.icon}>
-                <ServiceIcon type={service.icon} />
-              </div>
+          {services.map((service, index) => (
+            <div
+              key={service.title}
+              className={styles.serviceItem}
+            >
+              <Reveal
+                animation="fadeUp"
+                delay={(index % 2) * 100}
+                duration={650}
+                className={styles.serviceReveal}
+              >
+                <div className={styles.service}>
+                  <div className={styles.icon}>
+                    <ServiceIcon type={service.icon} />
+                  </div>
 
-              <div className={styles.serviceContent}>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-              </div>
+                  <div className={styles.serviceContent}>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                  </div>
+                </div>
+              </Reveal>
             </div>
           ))}
         </div>

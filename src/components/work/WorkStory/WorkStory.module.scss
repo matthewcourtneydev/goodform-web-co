@@ -1,16 +1,28 @@
 
-.section {
+/* =========================================
+   WORK STORY
+   ========================================= */
+
+   .section {
     width: 100%;
     background: var(--color-surface);
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
   }
   
+  /* =========================================
+     CONTAINER
+     ========================================= */
+  
   .container {
-    width: min(100% - 3rem, 1280px);
+    width: min(100% - 3rem, 1480px);
     margin: 0 auto;
     padding: 3rem 0;
   }
+  
+  /* =========================================
+     DESKTOP / TABLET CONTENT
+     ========================================= */
   
   .desktopContent {
     display: grid;
@@ -18,6 +30,26 @@
     align-items: center;
     gap: clamp(3rem, 6vw, 6rem);
   }
+  
+  /* =========================================
+     REVEAL WRAPPERS
+     ========================================= */
+  
+  .headingReveal,
+  .descriptionReveal {
+    width: 100%;
+    min-width: 0;
+  }
+  
+  .mobileReveal {
+    display: none;
+    width: 100%;
+    min-width: 0;
+  }
+  
+  /* =========================================
+     HEADING
+     ========================================= */
   
   .heading {
     min-width: 0;
@@ -43,6 +75,10 @@
     text-transform: uppercase;
   }
   
+  /* =========================================
+     DESCRIPTION
+     ========================================= */
+  
   .description {
     p {
       max-width: 540px;
@@ -53,11 +89,21 @@
     }
   }
   
+  /* =========================================
+     MOBILE ACCORDION
+     ========================================= */
+  
   .mobileAccordion {
-    display: none;
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-background);
   }
   
-  /* Tablet */
+  /* =========================================
+     TABLET
+     ========================================= */
   
   @media (max-width: 1024px) {
     .container {
@@ -80,11 +126,13 @@
     }
   }
   
-  /* Mobile */
+  /* =========================================
+     MOBILE
+     ========================================= */
   
   @media (max-width: 600px) {
     .container {
-      width: min(100% - 2rem, 1280px);
+      width: min(100% - 2rem, 1480px);
       padding: 1.75rem 0;
     }
   
@@ -92,12 +140,8 @@
       display: none;
     }
   
-    .mobileAccordion {
+    .mobileReveal {
       display: block;
-      overflow: hidden;
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      background: var(--color-background);
     }
   
     .mobileHeader {
@@ -107,11 +151,13 @@
       gap: 1rem;
       min-height: 48px;
       padding: 0.9rem 1rem;
+  
       color: var(--color-text);
       font-family: var(--font-heading);
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: -0.02em;
+  
       cursor: pointer;
       list-style: none;
   
@@ -150,6 +196,10 @@
       }
     }
   }
+  
+  /* =========================================
+     REDUCED MOTION
+     ========================================= */
   
   @media (prefers-reduced-motion: reduce) {
     .chevron {
