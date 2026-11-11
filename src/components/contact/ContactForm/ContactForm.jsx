@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useId, useRef, useState } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
-
 import styles from "./ContactForm.module.scss";
 
 const serviceOptions = [
@@ -40,7 +39,8 @@ const initialForm = {
   timeline: "",
 };
 
-export default function ContactForm({ source = "contact-page" }) {
+export default function ContactForm({ source = "contact-page", variant = "full" }) {
+  const isCompact = variant === "compact";
   const [formData, setFormData] = useState(initialForm);
   const [website, setWebsite] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
@@ -51,6 +51,7 @@ export default function ContactForm({ source = "contact-page" }) {
   const turnstileRef = useRef(null);
   const formId = useId().replace(/:/g, "");
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const cardClass = `${styles.formCard} ${isCompact ? styles.compact : ""}`;
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -86,9 +87,7 @@ export default function ContactForm({ source = "contact-page" }) {
 
       if (!response.ok || !result.success) {
         if (response.status === 429) {
-          throw new Error(
-            "Too many attempts. Please wait a few minutes before trying again."
-          );
+          throw new Error("Too many attempts. Please wait a few minutes before trying again.");
         }
         throw new Error(result.error || "Unable to send your inquiry. Please try again.");
       }
@@ -110,7 +109,7 @@ export default function ContactForm({ source = "contact-page" }) {
   if (isSubmitted) {
     return (
       <section
-        className={`${styles.formCard} ${styles.confirmationCard}`}
+        className={`${cardClass} ${styles.confirmationCard}`}
         aria-labelledby={`${formId}-confirmation-title`}
       >
         <div className={styles.confirmation} role="status" aria-live="polite">
@@ -124,147 +123,75 @@ export default function ContactForm({ source = "contact-page" }) {
             Your inquiry has been received. We&apos;ll review your project
             details and be in touch shortly.
           </p>
-          <Link href="/" className={styles.confirmationLink}>
-            Back to Home
-          </Link>
+          <Link href="/" className={styles.confirmationLink}>Back to Home</Link>
         </div>
       </section>
     );
   }
 
   return (
-    <section className={styles.formCard} aria-labelledby={`${formId}-title`}>
+    <section className={cardClass} aria-labelledby={`${formId}-title`}>
       <h2 id={`${formId}-title`}>Tell Us About Your Project</h2>
 
       <form onSubmit={handleSubmit}>
         <div className={styles.formGrid}>
           <div className={styles.field}>
-            <label htmlFor={`${formId}-name`}>
-              Full name <span aria-hidden="true">*</span>
-            </label>
-            <input
-              id={`${formId}-name`}
-              name="name"
-              type="text"
-              autoComplete="name"
-              maxLength={100}
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
+            <label htmlFor={`${formId}-name`}>Full name <span aria-hidden="true">*</span></label>
+            <input id={`${formId}-name`} name="name" type="text" autoComplete="name" maxLength={100} value={formData.name} onChange={handleChange} required />
           </div>
 
           <div className={styles.field}>
-            <label htmlFor={`${formId}-email`}>
-              Email address <span aria-hidden="true">*</span>
-            </label>
-            <input
-              id={`${formId}-email`}
-              name="email"
-              type="email"
-              autoComplete="email"
-              maxLength={254}
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
+            <label htmlFor={`${formId}-email`}>Email address <span aria-hidden="true">*</span></label>
+            <input id={`${formId}-email`} name="email" type="email" autoComplete="email" maxLength={254} value={formData.email} onChange={handleChange} required />
           </div>
 
-          <div className={`${styles.field} ${styles.fullWidth}`}>
+          <div className={`${styles.field} ${isCompact ? "" : styles.fullWidth}`}>
             <label htmlFor={`${formId}-business`}>Business name</label>
-            <input
-              id={`${formId}-business`}
-              name="business"
-              type="text"
-              autoComplete="organization"
-              maxLength={150}
-              value={formData.business}
-              onChange={handleChange}
-            />
+            <input id={`${formId}-business`} name="business" type="text" autoComplete="organization" maxLength={150} value={formData.business} onChange={handleChange} />
           </div>
 
-          <div className={`${styles.field} ${styles.fullWidth}`}>
-            <label htmlFor={`${formId}-service`}>
-              What can we help with? <span aria-hidden="true">*</span>
-            </label>
-            <select
-              id={`${formId}-service`}
-              name="service"
-              value={formData.service}
-              onChange={handleChange}
-              required
-            >
+          <div className={`${styles.field} ${isCompact ? "" : styles.fullWidth}`}>
+            <label htmlFor={`${formId}-service`}>What can we help with? <span aria-hidden="true">*</span></label>
+            <select id={`${formId}-service`} name="service" value={formData.service} onChange={handleChange} required>
               <option value="">Select a service</option>
               {serviceOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
+                <option key={option.value} value={option.value}>{option.label}</option>
               ))}
             </select>
           </div>
 
           <div className={`${styles.field} ${styles.fullWidth}`}>
-            <label htmlFor={`${formId}-description`}>
-              Tell us about your project <span aria-hidden="true">*</span>
-            </label>
-            <textarea
-              id={`${formId}-description`}
-              name="description"
-              rows={5}
-              minLength={10}
-              maxLength={5000}
-              value={formData.description}
-              onChange={handleChange}
-              required
-            />
+            <label htmlFor={`${formId}-description`}>Tell us about your project <span aria-hidden="true">*</span></label>
+            <textarea id={`${formId}-description`} name="description" rows={5} minLength={10} maxLength={5000} value={formData.description} onChange={handleChange} required />
           </div>
 
-          <div className={styles.field}>
-            <label htmlFor={`${formId}-budget`}>Estimated budget</label>
-            <select
-              id={`${formId}-budget`}
-              name="budget"
-              value={formData.budget}
-              onChange={handleChange}
-            >
-              <option value="">Select a range</option>
-              {budgetOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className={styles.field}>
-            <label htmlFor={`${formId}-timeline`}>Ideal timeline</label>
-            <select
-              id={`${formId}-timeline`}
-              name="timeline"
-              value={formData.timeline}
-              onChange={handleChange}
-            >
-              <option value="">Select a timeframe</option>
-              {timelineOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
+          {!isCompact && (
+            <>
+              <div className={styles.field}>
+                <label htmlFor={`${formId}-budget`}>Estimated budget</label>
+                <select id={`${formId}-budget`} name="budget" value={formData.budget} onChange={handleChange}>
+                  <option value="">Select a range</option>
+                  {budgetOptions.map((option) => (
+                    <option key={option.value} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+              </div>
+              <div className={styles.field}>
+                <label htmlFor={`${formId}-timeline`}>Ideal timeline</label>
+                <select id={`${formId}-timeline`} name="timeline" value={formData.timeline} onChange={handleChange}>
+                  <option value="">Select a timeframe</option>
+                  {timelineOptions.map((option) => (
+                    <option key={option.value} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+              </div>
+            </>
+          )}
         </div>
 
         <div className={styles.honeypot} aria-hidden="true">
           <label htmlFor={`${formId}-website`}>Website</label>
-          <input
-            id={`${formId}-website`}
-            name="website"
-            type="text"
-            autoComplete="off"
-            tabIndex={-1}
-            value={website}
-            onChange={(event) => setWebsite(event.target.value)}
-          />
+          <input id={`${formId}-website`} name="website" type="text" autoComplete="off" tabIndex={-1} value={website} onChange={(event) => setWebsite(event.target.value)} />
         </div>
 
         {siteKey ? (
@@ -272,35 +199,19 @@ export default function ContactForm({ source = "contact-page" }) {
             <Turnstile
               ref={turnstileRef}
               siteKey={siteKey}
-              onSuccess={(token) => {
-                setTurnstileToken(token);
-                setErrorMessage("");
-              }}
+              onSuccess={(token) => { setTurnstileToken(token); setErrorMessage(""); }}
               onExpire={() => setTurnstileToken("")}
-              onError={() => {
-                setTurnstileToken("");
-                setErrorMessage("Security verification failed. Please try again.");
-              }}
+              onError={() => { setTurnstileToken(""); setErrorMessage("Security verification failed. Please try again."); }}
               options={{ theme: "auto", size: "flexible" }}
             />
           </div>
         ) : (
-          <p className={styles.errorMessage} role="alert">
-            Security verification is unavailable.
-          </p>
+          <p className={styles.errorMessage} role="alert">Security verification is unavailable.</p>
         )}
 
-        {errorMessage && (
-          <p className={styles.errorMessage} role="alert">
-            {errorMessage}
-          </p>
-        )}
+        {errorMessage && <p className={styles.errorMessage} role="alert">{errorMessage}</p>}
 
-        <button
-          type="submit"
-          className={styles.submitButton}
-          disabled={isSubmitting || !turnstileToken || !siteKey}
-        >
+        <button type="submit" className={styles.submitButton} disabled={isSubmitting || !turnstileToken || !siteKey}>
           {isSubmitting ? "Sending..." : "Send Inquiry"}
         </button>
       </form>

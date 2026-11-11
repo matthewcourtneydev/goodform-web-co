@@ -1,19 +1,14 @@
 /* =========================================
-   CONTACT FORM
+   CONTACT FORM CARD
    ========================================= */
    .section {
     width: 100%;
     background: var(--palette-cream);
   }
-  
   .container {
     width: min(100% - 3rem, 1280px);
     margin: 0 auto;
   }
-  
-  /* =========================================
-     FORM CARD
-     ========================================= */
   .formCard {
     width: 100%;
     padding: 2rem;
@@ -31,19 +26,11 @@
       line-height: 1.15;
     }
   }
-  
-  /* =========================================
-     FORM GRID
-     ========================================= */
   .formGrid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem 1.25rem;
   }
-  
-  /* =========================================
-     FIELDS
-     ========================================= */
   .field {
     display: flex;
     flex-direction: column;
@@ -55,15 +42,9 @@
       font-size: 0.8rem;
       font-weight: 700;
       line-height: 1.4;
-  
-      span {
-        color: var(--palette-orange);
-      }
+      span { color: var(--palette-orange); }
     }
-  
-    input,
-    select,
-    textarea {
+    input, select, textarea {
       width: 100%;
       min-width: 0;
       border: 1px solid var(--palette-sage);
@@ -72,49 +53,30 @@
       color: var(--palette-forest);
       font: inherit;
       font-size: 0.875rem;
-      transition:
-        border-color 0.2s ease,
-        outline-color 0.2s ease;
+      transition: border-color 0.2s ease, outline-color 0.2s ease;
     }
-  
-    input,
-    select {
+    input, select {
       min-height: 44px;
       padding: 0.65rem 0.8rem;
     }
-  
     textarea {
       min-height: 125px;
       padding: 0.8rem;
       line-height: 1.6;
       resize: vertical;
     }
-  
-    input:focus-visible,
-    select:focus-visible,
-    textarea:focus-visible {
+    input:focus-visible, select:focus-visible, textarea:focus-visible {
       outline: 2px solid var(--palette-orange);
       outline-offset: 2px;
       border-color: var(--palette-orange);
     }
-  
-    select {
-      cursor: pointer;
-    }
-  
+    select { cursor: pointer; }
     option {
       background: var(--palette-cream);
       color: var(--palette-forest);
     }
   }
-  
-  .fullWidth {
-    grid-column: 1 / -1;
-  }
-  
-  /* =========================================
-     BOT PROTECTION AND FEEDBACK
-     ========================================= */
+  .fullWidth { grid-column: 1 / -1; }
   .honeypot {
     position: absolute;
     left: -9999px;
@@ -122,23 +84,17 @@
     height: 1px;
     overflow: hidden;
   }
-  
   .turnstileContainer {
     width: 100%;
     min-width: 0;
     margin-top: 1.5rem;
   }
-  
   .errorMessage {
     margin: 1rem 0 0;
     color: var(--palette-cream);
     font-size: 0.875rem;
     line-height: 1.5;
   }
-  
-  /* =========================================
-     SUBMIT BUTTON
-     ========================================= */
   .submitButton {
     display: inline-flex;
     align-items: center;
@@ -154,36 +110,23 @@
     font-size: 0.875rem;
     font-weight: 600;
     cursor: pointer;
-    transition:
-      transform 0.2s ease,
-      filter 0.2s ease;
-  
+    transition: transform 0.2s ease, filter 0.2s ease;
     &:hover:not(:disabled) {
       transform: translateY(-2px);
       filter: brightness(0.92);
     }
-  
-    &:disabled {
-      opacity: 0.65;
-      cursor: not-allowed;
-    }
-  
+    &:disabled { opacity: 0.65; cursor: not-allowed; }
     &:focus-visible {
       outline: 2px solid var(--palette-cream);
       outline-offset: 4px;
     }
   }
-  
-  /* =========================================
-     SUCCESS CONFIRMATION
-     ========================================= */
   .confirmationCard {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 430px;
   }
-  
   .confirmation {
     display: flex;
     flex-direction: column;
@@ -193,11 +136,7 @@
     max-width: 520px;
     margin: 0 auto;
     text-align: center;
-  
-    h2 {
-      margin: 0 0 1rem;
-    }
-  
+    h2 { margin: 0 0 1rem; }
     p {
       max-width: 440px;
       margin: 0;
@@ -206,7 +145,6 @@
       line-height: 1.7;
     }
   }
-  
   .confirmationIcon {
     display: flex;
     align-items: center;
@@ -218,13 +156,8 @@
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.08);
     color: var(--palette-cream);
-  
-    svg {
-      width: 32px;
-      height: 32px;
-    }
+    svg { width: 32px; height: 32px; }
   }
-  
   .confirmationLink {
     display: inline-flex;
     align-items: center;
@@ -238,15 +171,11 @@
     font-size: 0.875rem;
     font-weight: 600;
     text-decoration: none;
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease;
-  
+    transition: background-color 0.2s ease, border-color 0.2s ease;
     &:hover {
       background: rgba(255, 255, 255, 0.08);
       border-color: var(--palette-cream);
     }
-  
     &:focus-visible {
       outline: 2px solid var(--palette-orange);
       outline-offset: 4px;
@@ -254,101 +183,53 @@
   }
   
   /* =========================================
-     TABLET
+     COMPACT HOMEPAGE VARIANT
      ========================================= */
+  .compact {
+    padding: 1.75rem;
+    border-radius: 10px;
+    h2 {
+      margin-bottom: 1.25rem;
+      font-size: clamp(1.4rem, 2vw, 1.85rem);
+    }
+    .formGrid { gap: 1rem; }
+    .field textarea { min-height: 115px; }
+    .turnstileContainer { margin-top: 1.25rem; }
+    .submitButton { margin-top: 1.25rem; }
+    &.confirmationCard { min-height: 360px; }
+  }
   @media (max-width: 1024px) {
     .formCard {
       padding: 1.75rem;
-  
-      h2 {
-        font-size: 1.85rem;
-      }
+      h2 { font-size: 1.85rem; }
     }
-  
-    .formGrid {
-      gap: 0.9rem 1rem;
-    }
+    .formGrid { gap: 0.9rem 1rem; }
+    .compact h2 { font-size: 1.65rem; }
   }
-  
-  /* =========================================
-     MOBILE
-     ========================================= */
   @media (max-width: 600px) {
-    .container {
-      width: min(100% - 2rem, 1280px);
-    }
-  
+    .container { width: min(100% - 2rem, 1280px); }
     .formCard {
       padding: 1.25rem;
       border-radius: 12px;
-  
-      h2 {
-        margin-bottom: 1.25rem;
-        font-size: 1.5rem;
-      }
+      h2 { margin-bottom: 1.25rem; font-size: 1.5rem; }
     }
-  
-    .formGrid {
-      grid-template-columns: 1fr;
-      gap: 0.9rem;
-    }
-  
+    .formGrid { grid-template-columns: 1fr; gap: 0.9rem; }
     .field {
-      label {
-        font-size: 0.75rem;
-      }
-  
-      input,
-      select,
-      textarea {
-        font-size: 0.825rem;
-      }
+      label { font-size: 0.75rem; }
+      input, select, textarea { font-size: 0.825rem; }
     }
-  
-    .submitButton {
-      width: 100%;
-      margin-top: 1.25rem;
-    }
-  
-    .confirmationCard {
-      min-height: 360px;
-    }
-  
-    .confirmation {
-      p {
-        font-size: 0.9rem;
-      }
-    }
-  
+    .submitButton { width: 100%; margin-top: 1.25rem; }
+    .confirmationCard { min-height: 360px; }
+    .confirmation p { font-size: 0.9rem; }
     .confirmationIcon {
       width: 64px;
       height: 64px;
       margin-bottom: 1.5rem;
     }
   }
-  
-  /* =========================================
-     REDUCED MOTION
-     ========================================= */
   @media (prefers-reduced-motion: reduce) {
-    .field {
-      input,
-      select,
-      textarea {
-        transition: none;
-      }
-    }
-  
-    .submitButton {
-      transition: none;
-  
-      &:hover:not(:disabled) {
-        transform: none;
-      }
-    }
-  
-    .confirmationLink {
-      transition: none;
-    }
+    .field input, .field select, .field textarea,
+    .submitButton, .confirmationLink { transition: none; }
+    .submitButton:hover:not(:disabled) { transform: none; }
   }
   
