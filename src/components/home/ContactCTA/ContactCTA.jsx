@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import Reveal from "@/components/animations/Reveal";
 import ContactForm from "@/components/forms/ContactForm/ContactForm";
@@ -6,10 +5,7 @@ import styles from "./ContactCTA.module.scss";
 
 export default function ContactCTA() {
   return (
-    <section
-      className={styles.section}
-      aria-labelledby="contact-cta-title"
-    >
+    <section className={styles.section} aria-labelledby="contact-cta-title">
       <div className={styles.container}>
         <Reveal
           animation="fadeUp"
@@ -17,29 +13,21 @@ export default function ContactCTA() {
           className={styles.introReveal}
         >
           <div className={styles.intro}>
-            <p className={styles.eyebrow}>
-              Let's Work Together
-            </p>
+            <p className={styles.eyebrow}>Let's Work Together</p>
 
-            <h2 id="contact-cta-title">
-              Start a Project
-            </h2>
+            <h2 id="contact-cta-title">Start a Project</h2>
 
             <p className={styles.description}>
-              Have something in mind? Tell us a little about
-              your business and what you're looking to build.
-              We'll take it from there.
+              Have something in mind? Tell us a little about your business and
+              what you're looking to build. We'll take it from there.
             </p>
 
             <p className={styles.supporting}>
-              No pressure, no complicated process. Just a
-              conversation about what you need.
+              No pressure, no complicated process. Just a conversation about
+              what you need.
             </p>
 
-            <Link
-              href="/contact"
-              className={styles.mobileCTA}
-            >
+            <Link href="/contact" className={styles.mobileCTA}>
               Get in Touch
             </Link>
           </div>
@@ -52,7 +40,7 @@ export default function ContactCTA() {
           className={styles.formReveal}
         >
           <div className={styles.formContainer}>
-            <ContactForm />
+            <ContactForm source="homepage" />
           </div>
         </Reveal>
       </div>

@@ -285,6 +285,24 @@
     }
   }
   
+
+
+/* =========================================
+   BRAND SOCIAL LINKS
+   ========================================= */
+
+.brandSocials {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .brandSocials {
+    margin-top: 1.25rem;
+  }
+}
+ 
+
+
   @media (prefers-reduced-motion: reduce) {
     .column a {
       transition: none;

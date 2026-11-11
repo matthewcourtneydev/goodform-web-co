@@ -1,8 +1,10 @@
+
 import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./Footer.module.scss";
 import { navigation, legalNavigation } from "@/data/navigation";
+import SocialLinks from "@/components/common/SocialLinks/SocialLinks";
 
 const services = [
   "Custom Websites",
@@ -39,6 +41,10 @@ export default function Footer() {
               Independent web design and development for businesses that care
               about what they do.
             </p>
+
+            <div className={styles.brandSocials}>
+              <SocialLinks variant="light" />
+            </div>
           </div>
 
           <div className={styles.column}>

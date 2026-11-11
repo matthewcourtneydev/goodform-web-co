@@ -1,6 +1,7 @@
 
 import { Mail, UsersRound, Lightbulb } from "lucide-react";
 
+import SocialLinks from "@/components/common/SocialLinks/SocialLinks";
 import styles from "./ContactInfo.module.scss";
 
 export default function ContactInfo() {
@@ -60,6 +61,14 @@ export default function ContactInfo() {
             </p>
           </div>
         </div>
+      </div>
+
+      <div className={styles.socialSection}>
+        <h3 className={styles.socialHeading}>
+          Follow Goodform
+        </h3>
+
+        <SocialLinks variant="dark" />
       </div>
     </aside>
   );
