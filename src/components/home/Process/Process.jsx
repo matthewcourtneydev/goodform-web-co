@@ -17,10 +17,7 @@ export default function Process() {
             <h2 id="process-title">Our Process</h2>
 
             <p className={styles.description}>
-              A clear, collaborative approach from the first
-              conversation to launch day. Every step is designed
-              to keep you informed, involved, and confident in
-              what we're building together.
+            From our first conversation to the day your website goes live, you'll know what's happening and what's coming next. Our process keeps things organized, collaborative, and focused on getting the details right.
             </p>
           </div>
         </Reveal>

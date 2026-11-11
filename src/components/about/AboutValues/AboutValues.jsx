@@ -1,12 +1,4 @@
-
-import {
-  Gem,
-  MessagesSquare,
-  ShieldCheck,
-  TrendingUp,
-  Plus,
-  Minus,
-} from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 
 import Reveal from "@/components/animations/Reveal";
 import styles from "./AboutValues.module.scss";
@@ -19,7 +11,6 @@ const values = [
     tagline: "The details matter.",
     description:
       "From the first layout to the finishing touches, we take pride in creating work that's thoughtful, polished, and built with care. We wouldn't put our name on something we're not proud of.",
-    icon: Gem,
   },
   {
     id: "communication",
@@ -28,7 +19,6 @@ const values = [
     tagline: "No unnecessary middlemen.",
     description:
       "Clear conversations, honest feedback, and direct collaboration throughout the process. You'll know what we're building, why we're building it, and where things stand.",
-    icon: MessagesSquare,
   },
   {
     id: "reliability",
@@ -37,7 +27,6 @@ const values = [
     tagline: "Built to last. Here to help.",
     description:
       "A website should be something you can depend on. We focus on dependable solutions, thoughtful development, and support that extends beyond launch.",
-    icon: ShieldCheck,
   },
   {
     id: "growth",
@@ -46,7 +35,6 @@ const values = [
     tagline: "Built for where you're going.",
     description:
       "Your business won't stand still, and your website shouldn't hold it back. We build with the flexibility to evolve alongside your goals.",
-    icon: TrendingUp,
   },
 ];
 
@@ -72,43 +60,36 @@ export default function AboutValues() {
 
         {/* Desktop and tablet cards */}
         <div className={styles.valuesGrid}>
-          {values.map((value, index) => {
-            const Icon = value.icon;
-
-            return (
-              <div
-                key={value.id}
-                className={styles.valueItem}
+          {values.map((value, index) => (
+            <div
+              key={value.id}
+              className={styles.valueItem}
+            >
+              <Reveal
+                animation="fadeUp"
+                delay={index * 100}
+                duration={650}
+                className={styles.valueReveal}
               >
-                <Reveal
-                  animation="fadeUp"
-                  delay={index * 100}
-                  duration={650}
-                  className={styles.valueReveal}
-                >
-                  <article className={styles.valueCard}>
-                    <div className={styles.cardTop}>
-                      <span className={styles.number}>
-                        {value.number}
-                      </span>
+                <article className={styles.valueCard}>
+                  <span
+                    className={styles.number}
+                    aria-hidden="true"
+                  >
+                    {value.number}
+                  </span>
 
-                      <Icon
-                        size={28}
-                        strokeWidth={1.5}
-                        aria-hidden="true"
-                      />
-                    </div>
-
+                  <div className={styles.cardContent}>
                     <h3>{value.title}</h3>
 
                     <strong>{value.tagline}</strong>
 
                     <p>{value.description}</p>
-                  </article>
-                </Reveal>
-              </div>
-            );
-          })}
+                  </div>
+                </article>
+              </Reveal>
+            </div>
+          ))}
         </div>
 
         {/* Mobile accordions */}
@@ -126,7 +107,10 @@ export default function AboutValues() {
               >
                 <details className={styles.mobileValue}>
                   <summary>
-                    <span className={styles.mobileNumber}>
+                    <span
+                      className={styles.mobileNumber}
+                      aria-hidden="true"
+                    >
                       {value.number}
                     </span>
 

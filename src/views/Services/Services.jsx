@@ -2,6 +2,7 @@
 import ServicesHero from "@/components/services/ServicesHero/ServicesHero";
 import WhatWeProvide from "@/components/services/WhatWeProvide/WhatWeProvide";
 import WebsitePackages from "@/components/services/WebsitePackages/WebsitePackages";
+import WeddingWebsites from "@/components/services/WeddingWebsites/WeddingWebsites";
 import OptionalAddOns from "@/components/services/OptionalAddOns/OptionalAddOns";
 import HostingCare from "@/components/services/HostingCare/HostingCare";
 import ServicesFAQ from "@/components/services/ServicesFAQ/ServicesFAQ";
@@ -15,6 +16,7 @@ export default function Services() {
       <ServicesHero />
       <WhatWeProvide />
       <WebsitePackages />
+      <WeddingWebsites />
       <OptionalAddOns />
       <HostingCare />
       <ServicesFAQ />

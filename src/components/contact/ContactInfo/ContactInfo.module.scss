@@ -6,9 +6,12 @@
    .sidebar {
     display: flex;
     flex-direction: column;
+    flex: 1;
     min-width: 0;
-    height: 100%;
+    height: auto;
     padding: 2rem;
+    box-sizing: border-box;
+  
     border: 1px solid var(--palette-sage);
     border-radius: 16px;
     background: var(--palette-sage);
@@ -42,6 +45,7 @@
     align-items: flex-start;
     gap: 1rem;
     padding: 1.5rem 0;
+  
     border-bottom: 1px solid rgba(15, 45, 36, 0.2);
   
     &:first-child {
@@ -103,6 +107,76 @@
   }
   
   /* =========================================
+     FEATURED MESSAGE
+     ========================================= */
+  
+  .featurePanel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  
+    margin: 2rem 0;
+    padding: 1.75rem;
+    min-height: 220px;
+    overflow: hidden;
+  
+    border-radius: 12px;
+    background: var(--palette-forest);
+  
+    h3 {
+      position: relative;
+      z-index: 1;
+  
+      max-width: 360px;
+      margin: 0 0 0.85rem;
+  
+      color: var(--palette-cream);
+      font-family: var(--font-heading);
+      font-size: clamp(1.35rem, 1.8vw, 1.75rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+    }
+  
+    p {
+      position: relative;
+      z-index: 1;
+  
+      max-width: 380px;
+      margin: 0;
+  
+      color: var(--palette-cream);
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+  }
+  
+  .featureEyebrow {
+    position: relative;
+    z-index: 1;
+  
+    display: block;
+    margin-bottom: 1rem;
+  
+    color: var(--palette-sage);
+    font-size: 0.675rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+  
+  .featureArrow {
+    align-self: flex-end;
+    margin-top: 1rem;
+  
+    color: var(--palette-sage);
+    transform: rotate(0deg);
+  }
+  
+  /* =========================================
      SOCIAL LINKS
      ========================================= */
   
@@ -114,6 +188,7 @@
   
   .socialHeading {
     margin: 0 0 1rem;
+  
     color: var(--palette-forest);
     font-family: var(--font-text);
     font-size: 0.9rem;
@@ -150,6 +225,20 @@
       }
     }
   
+    .featurePanel {
+      margin: 1.5rem 0;
+      padding: 1.5rem;
+      min-height: 200px;
+  
+      h3 {
+        font-size: 1.45rem;
+      }
+  
+      p {
+        font-size: 0.825rem;
+      }
+    }
+  
     .socialSection {
       padding-top: 1.5rem;
     }
@@ -161,6 +250,7 @@
   
   @media (max-width: 600px) {
     .sidebar {
+      height: auto;
       padding: 1.25rem;
       border-radius: 12px;
   
@@ -194,7 +284,31 @@
       }
     }
   
+    .featurePanel {
+      min-height: auto;
+      margin: 1.5rem 0;
+      padding: 1.5rem;
+      border-radius: 10px;
+  
+      h3 {
+        max-width: 100%;
+        font-size: 1.45rem;
+      }
+  
+      p {
+        max-width: 100%;
+        font-size: 0.8rem;
+        line-height: 1.65;
+      }
+    }
+  
+    .featureEyebrow {
+      margin-bottom: 0.75rem;
+      font-size: 0.625rem;
+    }
+  
     .socialSection {
+      margin-top: 0;
       padding-top: 1.25rem;
     }
   

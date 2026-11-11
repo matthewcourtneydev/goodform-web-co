@@ -23,15 +23,12 @@ export default function WorkHero() {
               Real businesses.
             </span>
             <span className={styles.titleSecondary}>
-              Thoughtful solutions.
+            Made to stand out.
             </span>
           </h1>
 
           <p className={styles.description}>
-            Explore custom websites, branding, and digital
-            experiences we've created for small businesses.
-            See how thoughtful design and development bring
-            each business's vision to life.
+          Explore custom websites and digital experiences we've created for small businesses across different industries. Each project brings together purposeful design, reliable development, and a distinct personality that reflects the business behind it.
           </p>
 
           <div className={styles.actions}>

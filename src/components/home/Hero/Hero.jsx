@@ -23,7 +23,7 @@ export default function Hero() {
           </h1>
 
           <p className={styles.description}>
-          Custom web design and development for small businesses in Charlotte, NC and beyond. Thoughtful solutions, reliable support, and websites built to help your business grow.
+          Custom web design and development for small businesses in Charlotte, NC and beyond. From first impressions to lasting performance, we build websites that connect with customers and support your business as it grows.
           </p>
 
           <div className={styles.actions}>

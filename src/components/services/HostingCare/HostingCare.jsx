@@ -88,9 +88,7 @@ export default function HostingCare() {
 
             <div className={styles.accordionBody}>
               <p className={styles.accordionDescription}>
-                Keep your site fast, secure, and up to date
-                with fully managed hosting and reliable
-                maintenance.
+              Keep your website fast, secure, and running smoothly with fully managed hosting, routine updates, and dependable ongoing maintenance.”
               </p>
 
               <ul className={styles.accordionBenefits}>

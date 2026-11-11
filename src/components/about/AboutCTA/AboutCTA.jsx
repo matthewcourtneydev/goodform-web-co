@@ -23,8 +23,7 @@ export default function AboutCTA() {
               </h2>
 
               <p>
-                You've put your passion into your business.
-                Let's build a website that reflects it.
+              You've put your passion into your business. Let's create a website that reflects it, tells your story, and gives your customers a reason to choose you. Whether you're starting from scratch or ready for something better, we'd love to hear what you have in mind.
               </p>
             </div>
 

@@ -8,21 +8,21 @@ const services = [
   {
     title: "Website Development",
     description:
-      "Custom, responsive sites built for your business.",
+      "Custom, responsive websites designed for performance, usability, and your business goals.",
     image: "/images/illustrations/what-development.webp",
     alt: "Goodform otter working on a laptop",
   },
   {
     title: "Design & Branding",
     description:
-      "Thoughtful, consistent visual identity.",
+      "Distinctive logos, colors, and visual identities that bring your brand to life.",
     image: "/images/illustrations/what-branding.webp",
     alt: "Goodform otter painting at an easel",
   },
   {
     title: "Ongoing Support",
     description:
-      "Hosting, updates, and long-term care.",
+      "Reliable hosting, maintenance, and updates to keep your website running smoothly.",
     image: "/images/illustrations/what-support.webp",
     alt: "Goodform otter providing support with a laptop",
   },
@@ -42,9 +42,7 @@ export default function WhatWeDo() {
 
           <Reveal delay={100} duration={600}>
             <p>
-              Custom websites and digital solutions that
-              help small businesses show up, stand out,
-              and grow online.
+            From custom website development to branding and ongoing support, we bring the pieces together to help your business succeed online.
             </p>
           </Reveal>
         </div>

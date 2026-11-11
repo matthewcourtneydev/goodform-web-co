@@ -15,9 +15,7 @@ export default function ServicesCTA() {
           </h2>
 
           <p>
-            Have a project in mind? Let's talk about what
-            you're looking to build and find the right
-            solution for your business.
+          Whether you're starting from scratch, refreshing an existing website, or exploring new ideas, we'd love to hear what you have in mind. Tell us a little about your business, and we'll help you figure out the next steps.
           </p>
 
           <Link href="/contact" className={styles.button}>

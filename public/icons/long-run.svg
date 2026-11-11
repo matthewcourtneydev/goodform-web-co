@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" aria-labelledby="title">
+<title id="title">Long-term website reliability</title>
+<rect x="10" y="22" width="58" height="52" rx="8" stroke="#203E30" stroke-width="4"/>
+<path d="M10 35h58M23 29h1M32 29h1" stroke="#203E30" stroke-width="4" stroke-linecap="round"/>
+<path d="m23 58 10-10 9 8 13-14" stroke="#779678" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M73 23a29 29 0 0 1 11 47" stroke="#203E30" stroke-width="4" stroke-linecap="round"/>
+<path d="m72 12 2 12 12-2" stroke="#203E30" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M72 78a29 29 0 0 1-15 6" stroke="#779678" stroke-width="4" stroke-linecap="round"/>
+<circle cx="84" cy="70" r="4" fill="#D27A43"/>
+</svg>

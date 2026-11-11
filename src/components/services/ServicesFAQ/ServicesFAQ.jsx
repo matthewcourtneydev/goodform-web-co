@@ -5,30 +5,34 @@ import styles from "./ServicesFAQ.module.scss";
 
 const faqs = [
   {
-    question: "How long does a website take?",
+    question: "How long does it take to build a website?",
     answer:
-      "Timelines depend on the size and complexity of your project. A landing page typically takes 2–3 weeks, while a standard business website takes around 3–5 weeks. Larger or custom projects may take longer. We'll establish an estimated timeline together before work begins.",
+      "Project timelines depend on the size and complexity of your website. A landing page typically takes 2–3 weeks, while a standard business website takes around 3–5 weeks. Larger websites and custom functionality may require additional time. We'll discuss your goals, establish a realistic timeline, and outline the process before development begins.",
   },
   {
     question: "What's included in the price of a website?",
     answer:
-      "Every website package includes custom design and development, a mobile-responsive layout, basic on-page SEO setup, and essential integrations like contact forms and social links. Additional features can be added based on your needs. You'll receive a clear breakdown of what's included before committing to a project.",
+      "Every Goodform website includes custom design and development, mobile-responsive layouts, foundational SEO, and essential features like contact forms and social media links. Additional functionality, such as online booking, content management, or e-commerce, can be added based on your needs. You'll receive a clear breakdown of what's included before committing to a project.",
   },
   {
     question: "Do I need to provide my own content and images?",
     answer:
-      "Not necessarily. If you already have photos, branding, or written content, we'll work with what you have. If you're starting from scratch, we can help organize your content, refine your messaging, and explore options for imagery and other creative assets. We'll discuss what you need during the planning process.",
+      "Not necessarily! If you already have photos, branding, or written content, we'll incorporate them into your website. If you're starting from scratch, we can help organize your ideas, refine your messaging, and explore options for imagery and other creative assets. We'll figure out what you need together during the planning process.",
   },
   {
     question: "Can I update my website myself?",
     answer:
-      "Absolutely. If you'd like to manage your own content, we can integrate a content management system (CMS) that makes updates easier. If you'd rather stay focused on running your business, Goodform can handle website updates and ongoing maintenance for you.",
+      "Absolutely. If you'd like to manage your own content, we can integrate a content management system (CMS) that allows you to make updates without touching the code. Prefer to leave the technical work to someone else? Goodform can handle content updates and ongoing maintenance, so you can focus on your business.",
   },
   {
     question: "Do you offer hosting and maintenance?",
     answer:
-      "Yes. Goodform offers fully managed hosting and ongoing website care, including monitoring, maintenance, backups, and technical support. We'll recommend an arrangement that fits your website so you don't have to worry about the technical details.",
+      "Yes! Goodform offers fully managed website hosting and ongoing care, including routine updates, monitoring, backups, and technical support. We take care of the behind-the-scenes work to keep your website secure, performing well, and running smoothly long after launch.",
   },
+  {
+    question: "Do I own my website once it's finished?",
+    answer: "Yes! Once your project is complete and paid for, you'll own your website's final design and content, subject to any third-party licenses. Goodform can handle hosting, maintenance, and ongoing support, but you're never required to stay with us. If you decide to move to another provider, we'll help make the transition as smooth as possible."
+  }
 ];
 
 export default function ServicesFAQ() {

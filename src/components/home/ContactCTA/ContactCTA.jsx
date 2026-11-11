@@ -16,8 +16,7 @@ export default function ContactCTA() {
               what you're looking to build. We'll take it from there.
             </p>
             <p className={styles.supporting}>
-              No pressure, no complicated process. Just a conversation about
-              what you need.
+            Share a few details and we'll be in touch to talk through your goals, answer questions, and explore the next steps.
             </p>
             <Link href="/contact" className={styles.mobileCTA}>Get in Touch</Link>
           </div>

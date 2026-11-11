@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" aria-labelledby="title">
+<title id="title">Thoughtful design pencil and layout</title>
+<rect x="11" y="15" width="61" height="61" rx="9" stroke="#203E30" stroke-width="4"/>
+<path d="M11 30h61M24 23h2M34 23h2" stroke="#203E30" stroke-width="4" stroke-linecap="round"/>
+<rect x="21" y="40" width="22" height="22" rx="3" stroke="#779678" stroke-width="3.5"/>
+<path d="M49 42h12M49 51h10M21 68h27" stroke="#203E30" stroke-width="3.5" stroke-linecap="round"/>
+<path d="m48 78 29-36 10 8-29 36-13 4 3-12Z" fill="#F5F1E7" stroke="#203E30" stroke-width="3.5" stroke-linejoin="round"/>
+<path d="m48 78 10 8-13 4 3-12Z" fill="#D27A43" stroke="#203E30" stroke-width="3" stroke-linejoin="round"/>
+<path d="m72 48 10 8" stroke="#779678" stroke-width="3.5"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" aria-labelledby="title">
+<title id="title">Personal and direct conversation</title>
+<path d="M17 22h42c8 0 14 6 14 14v17c0 8-6 14-14 14H39L24 79V67h-7C9 67 6 61 6 53V36c0-8 4-14 11-14Z" stroke="#203E30" stroke-width="4" stroke-linejoin="round"/>
+<path d="M59 31h15c9 0 15 6 15 15v14c0 9-6 15-15 15h-4v11L56 75" stroke="#779678" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M23 44h28M23 53h18" stroke="#203E30" stroke-width="4" stroke-linecap="round"/>
+<path d="M76 15v9M71 20h10" stroke="#D27A43" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

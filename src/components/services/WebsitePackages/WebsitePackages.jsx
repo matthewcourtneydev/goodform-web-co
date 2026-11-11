@@ -1,13 +1,9 @@
-
 "use client";
 
 import { useState } from "react";
 import Link from "next/link";
 import Reveal from "@/components/animations/Reveal";
-import {
-  websitePackages,
-  formatPackagePrice,
-} from "@/data/services";
+import { websitePackages, formatPackagePrice } from "@/data/services";
 import styles from "./WebsitePackages.module.scss";
 
 function PackageDetails({ pkg }) {
@@ -55,21 +51,17 @@ function PackageDetails({ pkg }) {
 
 export default function WebsitePackages() {
   const [selectedId, setSelectedId] = useState("landing");
-  const [mobileExpandedId, setMobileExpandedId] =
-    useState("landing");
+  const [mobileExpandedId, setMobileExpandedId] = useState("landing");
 
   const selectedPackage =
-    websitePackages.find((pkg) => pkg.id === selectedId) ??
-    websitePackages[0];
+    websitePackages.find((pkg) => pkg.id === selectedId) ?? websitePackages[0];
 
   function selectPackage(id) {
     setSelectedId(id);
   }
 
   function toggleMobilePackage(id) {
-    setMobileExpandedId((current) =>
-      current === id ? null : id
-    );
+    setMobileExpandedId((current) => (current === id ? null : id));
   }
 
   return (
@@ -80,13 +72,12 @@ export default function WebsitePackages() {
       <div className={styles.container}>
         <Reveal animation="fadeUp" duration={650}>
           <div className={styles.intro}>
-            <h2 id="website-packages-title">
-              Website Packages
-            </h2>
+            <h2 id="website-packages-title">Website Packages</h2>
 
             <p>
-              Choose the option that fits your business,
-              with transparent pricing and clear deliverables.
+              Explore our website packages, from professional business websites
+              to personalized wedding experiences, with clear deliverables and
+              options tailored to your needs.
             </p>
           </div>
         </Reveal>
@@ -113,9 +104,7 @@ export default function WebsitePackages() {
                   <span>{pkg.name}</span>
 
                   <span className={styles.optionRight}>
-                    <strong>
-                      {formatPackagePrice(pkg.price)}
-                    </strong>
+                    <strong>{formatPackagePrice(pkg.price)}</strong>
 
                     <span aria-hidden="true">›</span>
                   </span>
@@ -159,9 +148,7 @@ export default function WebsitePackages() {
                     className={`${styles.mobileToggle} ${
                       expanded ? styles.mobileActive : ""
                     }`}
-                    onClick={() =>
-                      toggleMobilePackage(pkg.id)
-                    }
+                    onClick={() => toggleMobilePackage(pkg.id)}
                     aria-expanded={expanded}
                     aria-controls={`mobile-package-${pkg.id}`}
                   >
@@ -170,9 +157,7 @@ export default function WebsitePackages() {
                     <span className={styles.mobilePrice}>
                       {formatPackagePrice(pkg.price)}
 
-                      <span aria-hidden="true">
-                        {expanded ? "⌃" : "⌄"}
-                      </span>
+                      <span aria-hidden="true">{expanded ? "⌃" : "⌄"}</span>
                     </span>
                   </button>
 

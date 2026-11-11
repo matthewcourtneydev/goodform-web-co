@@ -4,7 +4,7 @@ import Reveal from "@/components/animations/Reveal";
 import styles from "./WorkStory.module.scss";
 
 const storyText =
-  "Every project starts with understanding the people, the business, and what makes it different. We focus on thoughtful design, clear communication, and building websites that feel like a natural extension of the businesses they represent.";
+  "Behind every website is a business with its own story, personality, and goals. We take the time to understand what makes each one unique, then bring those details together through purposeful design and development. The result is a website that looks the part, serves a purpose, and feels true to the business behind it.";
 
 export default function WorkStory() {
   return (

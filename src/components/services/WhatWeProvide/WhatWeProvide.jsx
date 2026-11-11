@@ -1,4 +1,5 @@
 
+import Image from "next/image";
 import Reveal from "@/components/animations/Reveal";
 import styles from "./WhatWeProvide.module.scss";
 
@@ -6,75 +7,28 @@ const services = [
   {
     title: "Website Development",
     description:
-      "Custom, responsive websites built around your business. Thoughtful functionality and clean code ensure everything works as good as it looks.",
-    icon: "development",
+      "Custom, responsive websites designed around your business and built for real-world performance. Clean code, intuitive navigation, and a seamless experience across devices.",
+    icon: "/icons/services/website-development.svg",
   },
   {
     title: "Design & Branding",
     description:
-      "Distinctive visuals that reflect your business and its personality. From layouts to brand identity, every detail works together.",
-    icon: "design",
+      "A cohesive visual identity that helps your business stand out. From layouts and typography to colors and branding, every detail works together to create a recognizable presence.",
+    icon: "/icons/services/design-branding.svg",
   },
   {
     title: "Ongoing Support",
     description:
-      "Your website shouldn't be something you have to worry about. We handle updates, maintenance, and the technical details.",
-    icon: "support",
+      "Your website shouldn't become another thing on your to-do list. We handle hosting, maintenance, updates, and the technical details so you can focus on running your business.",
+    icon: "/icons/services/ongoing-support.svg",
   },
   {
     title: "Growth Focused",
     description:
-      "Built with performance, usability, and search visibility in mind. A strong foundation that can evolve alongside your business.",
-    icon: "growth",
+      "A strong foundation for what's next. We prioritize usability, performance, and search engine fundamentals, with the flexibility to expand your website as your business grows.",
+    icon: "/icons/services/growth-focused.svg",
   },
 ];
-
-function ServiceIcon({ type }) {
-  const paths = {
-    development: (
-      <>
-        <rect x="3" y="4" width="18" height="13" rx="1.5" />
-        <path d="M8 21h8M12 17v4" />
-      </>
-    ),
-    design: (
-      <>
-        <path d="m12 2 9 5-9 5-9-5 9-5Z" />
-        <path d="m3 12 9 5 9-5M3 17l9 5 9-5" />
-      </>
-    ),
-    support: (
-      <>
-        <circle cx="12" cy="12" r="3" />
-        <path
-          d="M10 2h4l.7 2.4 2 .9 2.2-1.2 2.8 2.8-1.2 2.2.9 2L24 12l-2.6.9-.9 2 1.2 2.2-2.8 2.8-2.2-1.2-2 .9L14 22h-4l-.7-2.4-2-.9-2.2 1.2-2.8-2.8 1.2-2.2-.9-2L0 12l2.6-.9.9-2-1.2-2.2 2.8-2.8 2.2 1.2 2-.9L10 2Z"
-          transform="translate(2 2) scale(.8333)"
-        />
-      </>
-    ),
-    growth: (
-      <>
-        <rect x="3" y="14" width="4" height="7" rx="1" />
-        <rect x="10" y="9" width="4" height="12" rx="1" />
-        <rect x="17" y="3" width="4" height="18" rx="1" />
-      </>
-    ),
-  };
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      {paths[type]}
-    </svg>
-  );
-}
 
 export default function WhatWeProvide() {
   return (
@@ -90,9 +44,12 @@ export default function WhatWeProvide() {
             </h2>
 
             <p>
-              A complete website solution tailored to your
-              business, with the flexibility to add what you
-              need along the way.
+              From custom website development and visual
+              branding to dependable hosting and ongoing
+              support, Goodform brings the essentials
+              together in one place. Every solution is
+              tailored to your business, with flexibility
+              to add new features as your needs evolve.
             </p>
           </div>
         </Reveal>
@@ -111,7 +68,13 @@ export default function WhatWeProvide() {
               >
                 <div className={styles.service}>
                   <div className={styles.icon}>
-                    <ServiceIcon type={service.icon} />
+                    <Image
+                      src={service.icon}
+                      alt=""
+                      width={80}
+                      height={80}
+                      aria-hidden="true"
+                    />
                   </div>
 
                   <div className={styles.serviceContent}>

@@ -1,4 +1,5 @@
 
+import Image from "next/image";
 import Reveal from "@/components/animations/Reveal";
 import styles from "./WhyGoodform.module.scss";
 
@@ -6,61 +7,22 @@ const values = [
   {
     title: "Personal & Direct",
     description:
-      "No layers of account managers or unnecessary handoffs. You'll work directly with the person designing and building your website, keeping communication clear and your vision at the center.",
-    icon: "personal",
+      "No account managers, middlemen, or unnecessary handoffs. You'll work directly with the person designing and developing your website, with clear communication and a collaborative process from start to finish.",
+    icon: "/icons/personal-direct.svg",
   },
   {
     title: "Thoughtful by Design",
     description:
-      "Your business deserves more than a generic template. Every layout, interaction, and visual detail is considered with your audience, personality, and goals in mind.",
-    icon: "design",
+      "No one-size-fits-all templates or design for the sake of decoration. Every layout, interaction, and visual detail is shaped around your business, your audience, and what you want to accomplish.",
+    icon: "/icons/thoughtful-design.svg",
   },
   {
     title: "Built for the Long Run",
     description:
-      "A great website should work just as well as it looks. We build with performance, usability, and room to grow in mind, so your site continues supporting your business after launch.",
-    icon: "longTerm",
+      "Your website should do more than look good on launch day. We focus on performance, accessibility, and maintainability, creating a reliable foundation that can adapt as your business evolves.",
+    icon: "/icons/long-run.svg",
   },
 ];
-
-function ValueIcon({ type }) {
-  const paths = {
-    personal: (
-      <>
-        <rect x="4" y="5" width="16" height="14" rx="2" />
-        <circle cx="9" cy="10" r="2" />
-        <path d="M6.5 16c.5-2 4.5-2 5 0M14 10h4M14 13h3" />
-      </>
-    ),
-    design: (
-      <>
-        <rect x="4" y="4" width="16" height="16" rx="2" />
-        <circle cx="15.5" cy="9" r="1.5" />
-        <path d="m5 17 5-5 3 3 2-2 4 4" />
-      </>
-    ),
-    longTerm: (
-      <>
-        <circle cx="12" cy="12" r="8" />
-        <path d="m8.5 12 2.5 2.5 4.5-5" />
-      </>
-    ),
-  };
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      {paths[type]}
-    </svg>
-  );
-}
 
 export default function WhyGoodform() {
   return (
@@ -80,9 +42,11 @@ export default function WhyGoodform() {
             </h2>
 
             <p className={styles.introDescription}>
-              Good design should feel personal, work beautifully,
-              and make a real difference for your business.
-              That's the thinking behind everything we build.
+              A great website starts with understanding the
+              people behind the business. We combine a
+              hands-on approach, intentional design, and
+              dependable development to create something
+              that works for you.
             </p>
           </div>
         </Reveal>
@@ -98,7 +62,13 @@ export default function WhyGoodform() {
             >
               <div className={styles.value}>
                 <div className={styles.icon}>
-                  <ValueIcon type={value.icon} />
+                  <Image
+                    src={value.icon}
+                    alt=""
+                    width={96}
+                    height={96}
+                    aria-hidden="true"
+                  />
                 </div>
 
                 <div className={styles.valueContent}>

@@ -1,5 +1,5 @@
 
-import { Mail, UsersRound, Lightbulb } from "lucide-react";
+import { Mail, UsersRound, Lightbulb, ArrowUpRight } from "lucide-react";
 
 import SocialLinks from "@/components/common/SocialLinks/SocialLinks";
 import styles from "./ContactInfo.module.scss";
@@ -12,6 +12,7 @@ export default function ContactInfo() {
     >
       <h2 id="contact-info-title">Get in Touch</h2>
 
+      {/* Contact information */}
       <div className={styles.infoList}>
         <div className={styles.infoItem}>
           <Mail
@@ -63,6 +64,24 @@ export default function ContactInfo() {
         </div>
       </div>
 
+      {/* Featured message */}
+      <div className={styles.featurePanel}>
+        <span className={styles.featureEyebrow}>
+          A Personal Approach
+        </span>
+
+        <h3>
+          Good websites start with good conversations.
+        </h3>
+
+        <p>
+          Tell us what you're working toward. We'll help
+          you explore what's possible and find the right
+          approach for your business.
+        </p>
+      </div>
+
+      {/* Social links */}
       <div className={styles.socialSection}>
         <h3 className={styles.socialHeading}>
           Follow Goodform

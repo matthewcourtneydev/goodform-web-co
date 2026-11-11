@@ -35,7 +35,6 @@
   
     h2 {
       margin: 0 0 1.25rem;
-  
       font-family: var(--font-heading);
       font-size: clamp(2.25rem, 3vw, 3.25rem);
       font-weight: 700;
@@ -47,7 +46,6 @@
   
   .eyebrow {
     margin: 0 0 0.75rem;
-  
     color: #34483b;
     font-size: 0.7rem;
     font-weight: 700;
@@ -58,7 +56,6 @@
   .introDescription {
     max-width: 340px;
     margin: 0;
-  
     color: #34483b;
     font-size: 0.95rem;
     line-height: 1.75;
@@ -98,7 +95,6 @@
     min-width: 0;
     height: 100%;
     padding: 0 1.5rem;
-  
     text-align: center;
   }
   
@@ -112,16 +108,15 @@
     justify-content: center;
     flex-shrink: 0;
   
-    width: 64px;
-    height: 64px;
+    width: 88px;
+    height: 88px;
     margin: 0 auto 1.5rem;
   
-    color: var(--color-text);
-  
-    svg {
+    img {
       display: block;
-      width: 36px;
-      height: 36px;
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
     }
   }
   
@@ -132,7 +127,6 @@
   .valueContent {
     h3 {
       margin: 0 0 0.75rem;
-  
       color: var(--color-text);
       font-family: var(--font-heading);
       font-size: clamp(1.05rem, 1.3vw, 1.25rem);
@@ -141,9 +135,8 @@
     }
   
     p {
-      max-width: 260px;
+      max-width: 280px;
       margin: 0 auto;
-  
       color: #34483b;
       font-size: 0.875rem;
       line-height: 1.7;
@@ -178,13 +171,13 @@
     }
   
     .icon {
-      width: 58px;
-      height: 58px;
+      width: 76px;
+      height: 76px;
       margin-bottom: 1.25rem;
   
-      svg {
-        width: 34px;
-        height: 34px;
+      img {
+        width: 56px;
+        height: 56px;
       }
     }
   
@@ -240,20 +233,19 @@
       flex-direction: row;
       align-items: flex-start;
       gap: 1.25rem;
-  
       padding: 1.5rem 0;
       text-align: left;
     }
   
     .icon {
-      flex: 0 0 44px;
-      width: 44px;
-      height: 44px;
+      flex: 0 0 56px;
+      width: 56px;
+      height: 56px;
       margin: 0;
   
-      svg {
-        width: 32px;
-        height: 32px;
+      img {
+        width: 48px;
+        height: 48px;
       }
     }
   

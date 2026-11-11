@@ -9,19 +9,19 @@ const steps = [
     number: "01",
     title: "Send Your Inquiry",
     description:
-      "Share a few details about your project so we can learn more about what you're looking for.",
+      "Share a few details about your business and what you're looking to accomplish.",
   },
   {
     number: "02",
     title: "Let's Talk",
     description:
-      "We'll reach out to schedule a quick call, talk through your goals, and answer any questions.",
+      "We'll schedule a conversation to discuss your goals, explore ideas, and answer your questions.",
   },
   {
     number: "03",
     title: "Get a Proposal",
     description:
-      "You'll receive a clear, customized proposal with recommendations, timing, and next steps.",
+      "You'll receive a personalized proposal outlining the recommended approach, timeline, and pricing.",
   },
 ];
 

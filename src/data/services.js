@@ -76,9 +76,28 @@ export const websitePackages = [
       "Project-specific development and support",
     ],
   },
+  {
+    id: "wedding",
+    name: "Wedding Website & Planning Hub",
+    price: null,
+    description:
+      "A personalized wedding website with a private planning dashboard to keep your guests, events, and wedding details organized in one place.",
+    bestFor: [
+      "Couples planning their wedding",
+      "Managing guest lists and RSVPs",
+      "Organizing vendors, schedules, and important dates",
+    ],
+    features: [
+      "Personalized, mobile-friendly wedding website",
+      "Guest list and RSVP management",
+      "Private wedding planning dashboard",
+      "Event schedules and important dates",
+      "Vendor contacts and planning details",
+      "Registry and wish-list integration",
+      "Downloadable PDF reports for vendors",
+    ],
+  },
 ];
-
-
 
 export const serviceAddOns = [
   {
@@ -130,7 +149,6 @@ export const serviceAddOns = [
     description: "Manage website content more easily.",
   },
 ];
-
 
 export const formatPackagePrice = (price) =>
   price === null ? "Quote" : `$${price.toLocaleString()}`;

@@ -6,7 +6,7 @@ export const projects = [
     name: "Forest Hills Chiropractic",
     category: "Website Design & Development",
     description:
-      "A modern, trusted online presence for a long-standing Pittsburgh practice.",
+      "A refreshed website for an established Pittsburgh chiropractic practice, bringing its services, patient information, and appointment options together in one accessible experience. Designed to build confidence with new patients while serving the practice's existing community.",
     image: "/images/projects/forest-hills/laptop-mobile.webp",
     imageAlt:
       "Forest Hills Chiropractic website displayed on laptop and mobile devices",
@@ -17,7 +17,7 @@ export const projects = [
     name: "Casa de Fades",
     category: "Website Design & Development",
     description:
-      "A bold digital experience for a barbershop built around style and personality.",
+      "A bold, personality-driven website that captures the character of Casa de Fades and its approach to barbering. Built to showcase the shop, highlight its services, and give potential clients an easy way to explore what it offers.",
     image: "/images/projects/casa-de-fades/laptop-mobile.webp",
     imageAlt:
       "Casa de Fades website displayed on laptop and mobile devices",
@@ -28,7 +28,7 @@ export const projects = [
     name: "Alexandria Hair Studios",
     category: "Website Design & Development",
     description:
-      "A polished, personality-driven website for an independent hair stylist.",
+      "A polished, inviting website that puts the stylist's work and personal brand at the forefront. Designed to showcase services, highlight her expertise, and help new clients get a feel for the experience before booking.",
     image: "/images/projects/alexandria-hair/laptop-mobile.webp",
     imageAlt:
       "Alexandria Hair Studios website displayed on laptop and mobile devices",
@@ -39,7 +39,7 @@ export const projects = [
     name: "Sun Sisters",
     category: "Website Design & Development",
     description:
-      "A welcoming digital presence built to reflect the business and its community.",
+      "A warm, welcoming website designed to reflect the personality of Sun Sisters and the community behind it. The experience brings the business's story and offerings together in a way that feels approachable, engaging, and easy to navigate.",
     image: "/images/projects/sun-sisters/laptop-mobile.webp",
     imageAlt:
       "Sun Sisters website displayed on laptop and mobile devices",
@@ -50,7 +50,7 @@ export const projects = [
     name: "United Training Facility",
     category: "Website Design & Development",
     description:
-      "A streamlined website designed to connect athletes with training opportunities.",
+      "A focused, easy-to-navigate website that introduces athletes to United Training Facility and its training opportunities. Built to communicate the facility's offerings clearly and make it easier for prospective members to take the next step.",
     image: "/images/projects/united-training/laptop-mobile.webp",
     imageAlt:
       "United Training Facility website displayed on laptop and mobile devices",

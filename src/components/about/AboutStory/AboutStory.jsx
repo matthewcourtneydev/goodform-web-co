@@ -14,16 +14,18 @@ const storySections = [
     id: "creativity",
     title: "From creativity to code.",
     paragraphs: [
-      "Founded by Matthew Courtney, Goodform brings together a lifelong passion for art and design with years of professional software development experience.",
-      "What started as a creative outlet during the pandemic quickly became a deeper passion for building complete, meaningful digital experiences.",
+      "Founded by Matthew Courtney, Goodform Web Co. brings together a lifelong interest in art and design with years of professional software development experience.",
+      "What began as a creative outlet during the pandemic gradually grew into something more. Exploring web design opened the door to development, where creativity and problem-solving came together in a way that felt natural.",
+      "Over time, that interest became a career in software development and a passion for creating complete digital experiences. Goodform is where those two sides meet: the creativity to make something distinctive and the technical experience to make it work."
     ],
   },
   {
     id: "why-goodform",
     title: "Why Goodform exists.",
     paragraphs: [
-      "After helping a friend transform an underwhelming website into a brand, a stronger online presence, and a growing business, it became clear: many small businesses are passionate about what they do, but don't always have the tools or support to show it online.",
-      "That's why I started Goodform. To build websites that look great, work beautifully, and genuinely represent the people behind them.",
+      "Goodform started taking shape while I was helping a friend improve their business's website. What began as a simple redesign turned into something much bigger: a stronger brand, a more professional online presence, and a website that could actually support the business as it grew.",
+      "That experience showed me how much of a difference the right website can make, especially for small business owners who are already juggling everything else that comes with running a business.",
+      "I started Goodform because I believe small businesses deserve the same level of care, creativity, and technical quality as the big guys, without losing the personal connection that makes working together worthwhile."
     ],
   },
 ];

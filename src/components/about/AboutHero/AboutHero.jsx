@@ -15,9 +15,7 @@ export default function AboutHero() {
           </h1>
 
           <p className={styles.description}>
-            Goodform Web Co. is an independent web design and development studio
-            helping small businesses stand out online through thoughtful design,
-            custom-built websites, and a genuinely personal approach.
+          Goodform Web Co. is a small, independent web design and development studio with a simple goal: helping small businesses make a big impression online. From the first conversation to the final launch, we bring creativity, technical expertise, and a personal touch to every project.
           </p>
 
           <div className={styles.actions}>

@@ -18,7 +18,7 @@ export default function PricingPreview() {
   };
 
   const previewPackages = websitePackages.filter(
-    (pkg) => pkg.id !== "custom"
+    (pkg) => ["landing", "business", "informational"].includes(pkg.id)
   );
 
   return (
@@ -35,9 +35,7 @@ export default function PricingPreview() {
               </h2>
 
               <p>
-                Straightforward website packages for small
-                businesses at different stages, with room
-                to customize as your needs grow.
+              Every business has different goals, and your website should reflect that. Our web design and development packages offer straightforward starting points, whether you're establishing your online presence or ready for something more advanced. With customizable features and dependable support, you'll have a website built around your needs today and ready for what's next.
               </p>
             </div>
 

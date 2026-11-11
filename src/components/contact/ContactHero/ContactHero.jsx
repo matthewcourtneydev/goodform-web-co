@@ -27,12 +27,7 @@ export default function ContactHero() {
           </h1>
 
           <p className={styles.description}>
-            Have a website project in mind or looking to
-            improve your online presence? Whether you're
-            starting with an idea or a detailed plan,
-            we'd love to hear about it. Tell us what
-            you're looking for, and we'll be in touch
-            to discuss the next steps.
+          Whether you're launching a new business, refreshing an existing website, or exploring ways to improve your online presence, we'd love to hear about it. You don't need to have everything figured out. Tell us a little about your business and what you're looking to accomplish, and we'll take it from there.
           </p>
         </div>
 

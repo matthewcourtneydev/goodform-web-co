@@ -63,23 +63,25 @@
   
   .step {
     position: relative;
+    display: flex;
     min-width: 0;
   }
   
   .stepReveal {
-    display: block;
+    display: flex;
     width: 100%;
-    height: 100%;
     min-width: 0;
   }
   
   .stepCard {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
-    height: 100%;
-    min-height: 145px;
-    padding: 1.5rem;
+    flex: 1;
+    min-width: 0;
+    min-height: 190px;
+    padding: 1.75rem;
+  
     border: 1px solid rgba(15, 45, 36, 0.16);
     border-radius: 12px;
     background: var(--palette-cream);
@@ -90,18 +92,17 @@
      ========================================= */
   
   .number {
-    display: flex;
-    flex: 0 0 42px;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: var(--palette-sage);
+    display: block;
+    margin-bottom: 1.15rem;
+  
     color: var(--palette-forest);
-    font-size: 0.875rem;
-    font-weight: 800;
+    font-family: var(--font-heading);
+    font-size: clamp(2.75rem, 3.5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.065em;
     line-height: 1;
+  
+    user-select: none;
   }
   
   /* =========================================
@@ -112,18 +113,21 @@
     min-width: 0;
   
     h3 {
-      margin: 0 0 0.5rem;
+      margin: 0 0 0.6rem;
       color: var(--palette-forest);
-      font-size: 1rem;
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
       font-weight: 700;
-      line-height: 1.3;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
     }
   
     p {
+      max-width: 360px;
       margin: 0;
       color: var(--palette-forest);
-      font-size: 0.85rem;
-      line-height: 1.6;
+      font-size: 0.875rem;
+      line-height: 1.65;
     }
   }
   
@@ -137,6 +141,7 @@
     right: -2rem;
     color: var(--palette-forest);
     transform: translateY(-50%);
+    pointer-events: none;
   }
   
   /* =========================================
@@ -162,27 +167,29 @@
     }
   
     .stepCard {
+      flex-direction: row;
       align-items: center;
+      gap: 1.5rem;
       min-height: 0;
-      padding: 1rem 1.25rem;
+      padding: 1.5rem;
       border-radius: 10px;
     }
   
     .number {
-      flex-basis: 38px;
-      width: 38px;
-      height: 38px;
-      font-size: 0.8rem;
+      flex: 0 0 70px;
+      margin-bottom: 0;
+      font-size: 3rem;
     }
   
     .stepContent {
       h3 {
-        margin-bottom: 0.25rem;
-        font-size: 0.95rem;
+        margin-bottom: 0.35rem;
+        font-size: 1.15rem;
       }
   
       p {
-        font-size: 0.825rem;
+        max-width: 600px;
+        font-size: 0.85rem;
       }
     }
   
@@ -214,35 +221,41 @@
     }
   
     .steps {
-      gap: 0.6rem;
+      gap: 0.65rem;
     }
   
     .stepCard {
       align-items: flex-start;
-      gap: 0.85rem;
-      min-height: 0;
-      padding: 1rem;
+      gap: 1rem;
+      padding: 1.25rem;
       border-radius: 8px;
     }
   
     .number {
-      flex-basis: 32px;
-      width: 32px;
-      height: 32px;
-      font-size: 0.75rem;
+      flex: 0 0 48px;
+      font-size: 2.25rem;
     }
   
     .stepContent {
       h3 {
-        margin: 0 0 0.35rem;
-        font-size: 0.875rem;
+        margin: 0 0 0.4rem;
+        font-size: 1.05rem;
       }
   
       p {
-        display: block;
         font-size: 0.8rem;
-        line-height: 1.55;
+        line-height: 1.6;
       }
+    }
+  }
+  
+  /* =========================================
+     REDUCED MOTION
+     ========================================= */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .stepCard {
+      transition: none;
     }
   }
   

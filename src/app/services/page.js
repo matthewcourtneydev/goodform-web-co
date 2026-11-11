@@ -8,10 +8,10 @@ export const metadata = {
      GENERAL SEO
      ========================================= */
 
-  title: "Web Design & Development Services",
+  title: "Web Design, Development & Wedding Websites",
 
   description:
-    "Explore custom web design and development services from Goodform Web Co. Affordable website packages, branding, managed hosting, and ongoing support for small businesses.",
+    "Explore custom web design, development, branding, and wedding websites with RSVP and planning tools. Website packages, hosting, and support from Goodform Web Co.",
 
   alternates: {
     canonical: "/services",
@@ -23,10 +23,10 @@ export const metadata = {
 
   openGraph: {
     title:
-      "Web Design & Development Services | Goodform Web Co.",
+      "Web Design, Development & Wedding Websites | Goodform Web Co.",
 
     description:
-      "From custom websites to branding and ongoing care, explore thoughtful digital solutions built for small businesses.",
+      "Custom websites for small businesses, branding, ongoing support, and personalized wedding websites with built-in RSVP and planning tools.",
 
     url: "/services",
 
@@ -55,10 +55,10 @@ export const metadata = {
     card: "summary_large_image",
 
     title:
-      "Web Design & Development Services | Goodform Web Co.",
+      "Web Design, Development & Wedding Websites | Goodform Web Co.",
 
     description:
-      "Custom websites, branding, hosting, and ongoing support for small businesses.",
+      "Custom business websites, branding, hosting, and personalized wedding websites with RSVP and planning tools.",
 
     images: [ogImage],
   },

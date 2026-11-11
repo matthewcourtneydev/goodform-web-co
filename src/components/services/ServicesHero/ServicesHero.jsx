@@ -15,9 +15,7 @@ export default function ServicesHero() {
           </h1>
 
           <p className={styles.description}>
-            From custom web design and development to reliable hosting and
-            ongoing support, Goodform helps small businesses build a stronger
-            online presence without the unnecessary complexity.
+          Your business deserves a website that looks great, works seamlessly, and makes a lasting impression. Goodform provides custom web design, development, reliable hosting, and ongoing support to help small businesses connect with customers and grow online.
           </p>
 
           <div className={styles.actions}>

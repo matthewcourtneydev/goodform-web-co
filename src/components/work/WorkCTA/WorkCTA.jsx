@@ -11,12 +11,11 @@ export default function WorkCTA() {
       <div className={styles.container}>
         <div className={styles.content}>
           <h2 id="work-cta-title">
-            Have a project in mind?
+          Like what you see? Let's build yours.
           </h2>
 
           <p>
-            Let's talk about your business and what we can
-            build together.
+          Every great website starts with a conversation. Tell us about your business, what you have in mind, and where you'd like to take it.
           </p>
 
           <Link

@@ -52,8 +52,7 @@ export default function FeaturedProject() {
             </h2>
 
             <p className={styles.description}>
-              A modern, trustworthy online presence for a
-              long-standing chiropractic practice in Pittsburgh.
+            A modern, professional website that reflects the trusted reputation of an established Pittsburgh chiropractic practice.
             </p>
 
             <ul className={styles.highlights}>
