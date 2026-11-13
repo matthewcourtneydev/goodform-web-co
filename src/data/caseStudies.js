@@ -133,7 +133,7 @@ export const caseStudies = {
       ],
     },
 
-    website: null,
+    website: "https://alexandria-hair-studios.vercel.app/",
   },
 
   /* =========================================
@@ -178,7 +178,7 @@ export const caseStudies = {
       ],
     },
 
-    website: "",
+    website: "https://unitedtrainingfacility.com/",
   },
 
   /* =========================================
@@ -223,6 +223,6 @@ export const caseStudies = {
       ],
     },
 
-    website: "",
+    website: "https://www.sunsistersspraytanning.com/",
   },
 };
