@@ -81,9 +81,15 @@ export const metadata = {
      FAVICONS
      ========================================= */
 
-  // Next.js automatically detects favicon.ico,
-  // icon.png, and apple-icon.png in src/app/.
-  // No manual icon configuration is required.
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+        type: "image/x-icon",
+      },
+    ],
+  },
 
   /* =========================================
      SEARCH ENGINE INDEXING
